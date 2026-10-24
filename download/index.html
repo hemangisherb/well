@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<title>Your Download — Blend Your Way to Wellness | The Wellness Herb</title>
+<!-- Private page: keep every search engine and crawler out -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet"/>
+<meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="description" content="Private download page for buyers of Blend Your Way to Wellness by The Wellness Herb."/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png"/>
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#0a2a1d"/>
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#071a12"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-soft:#f3f7f0; --bg-deep:#0a2a1d;
+  --ink:#121a15; --ink-2:#3d4a41; --ink-3:#6b7a6f;
+  --line:#e2e8df; --card:#ffffff;
+  --green:#14532d; --green-2:#1a6b3c; --lime:#8bc34a; --lime-soft:#eaf4dc;
+  --gold:#e9a426; --gold-soft:#fdf3d7;
+  --cta:#e94f1e; --cta-hover:#d13f12;
+  --ok:#1a6b3c; --ok-soft:#e6f4e6;
+  --warn:#8a5d00; --warn-soft:#fdf3d7;
+  --radius:18px;
+  --shadow:0 12px 32px rgba(10,42,29,.12); --shadow-lg:0 24px 60px rgba(10,42,29,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0b120e; --bg-soft:#121c15; --bg-deep:#071a12;
+    --ink:#eef3ec; --ink-2:#c2cec3; --ink-3:#8a9a8d;
+    --line:#223128; --card:#131f17;
+    --lime-soft:#1c2f1a; --gold-soft:#2e2410; --ok-soft:#152a1a; --warn-soft:#2e2410;
+    --shadow:0 12px 32px rgba(0,0,0,.4); --shadow-lg:0 24px 60px rgba(0,0,0,.5);
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Manrope",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{width:min(880px,100% - 36px);margin:0 auto}
+.serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+/* top band */
+.band{background:var(--bg-deep);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:700}
+.band b{color:#ffd166}
+header{border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:10px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16.5px}
+.brand img{width:36px;height:36px;border-radius:10px}
+.brand small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.private-tag{margin-left:auto;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:6px 11px;display:flex;align-items:center;gap:6px}
+
+main{padding:40px 0 56px;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 55%)}
+.state{display:none}
+.state.on{display:block}
+
+/* checking */
+.checking{text-align:center;padding:70px 0}
+.spinner{width:44px;height:44px;margin:0 auto 18px;border-radius:50%;border:4px solid var(--line);border-top-color:var(--green-2);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spinner{animation:none}}
+
+/* confirmation hero */
+.confirm-badge{width:76px;height:76px;margin:0 auto 20px;border-radius:50%;background:var(--ok-soft);border:2px solid color-mix(in srgb, var(--ok) 30%, transparent);display:grid;place-items:center;font-size:36px;color:var(--ok)}
+.lock-badge{background:var(--warn-soft);border-color:color-mix(in srgb, var(--gold) 45%, transparent);color:var(--warn)}
+.hero{text-align:center;max-width:640px;margin:0 auto}
+.hero h1{font-size:clamp(32px,5vw,44px);line-height:1.08;margin:0 0 12px}
+.hero h1 em{font-style:italic;color:var(--green-2)}
+.hero p{font-size:16.5px;color:var(--ink-2);margin:0}
+.hero p b{color:var(--ink)}
+
+/* book / download card */
+.dl-card{margin:34px auto 0;max-width:720px;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.dl-top{display:grid;grid-template-columns:220px 1fr}
+@media(max-width:620px){.dl-top{grid-template-columns:1fr}}
+.dl-top img{width:100%;height:100%;object-fit:cover;min-height:210px}
+@media(max-width:620px){.dl-top img{height:190px;min-height:0}}
+.dl-body{padding:24px 24px 20px}
+.dl-body .dl-kicker{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-2)}
+.dl-body h2{font-size:24px;line-height:1.2;margin:7px 0 6px}
+.dl-body p{margin:0 0 14px;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:4px}
+@media(max-width:620px){.meta-grid{grid-template-columns:repeat(2,1fr)}}
+.meta{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:9px 11px;text-align:center}
+.meta b{display:block;font-size:15px;line-height:1.2}
+.meta span{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.dl-actions{padding:20px 24px 24px;border-top:1px solid var(--line);background:var(--bg-soft)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-weight:800;border-radius:999px;transition:.18s;font-family:inherit;text-align:center}
+.btn-cta{background:var(--cta);color:#fff;padding:17px 28px;font-size:17px;box-shadow:0 10px 24px rgba(233,79,30,.3);width:100%;min-height:56px}
+.btn-cta:hover{background:var(--cta-hover);transform:translateY(-1px)}
+.btn-ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);padding:13px 20px;font-size:14.5px;min-height:50px}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.micro{font-size:12.5px;color:var(--ink-3);text-align:center;margin:12px 0 0;line-height:1.55}
+.micro b{color:var(--ink-2)}
+.started{display:none;margin-top:14px;background:var(--ok-soft);border:1px solid color-mix(in srgb, var(--ok) 30%, transparent);border-radius:12px;padding:13px 15px;font-size:14px;line-height:1.6;color:var(--ink-2)}
+.started.on{display:block}
+.started b{color:var(--ink)}
+.link-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.link-row .btn{flex:1;min-width:210px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:720px;margin:26px auto 0}
+@media(max-width:620px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;text-align:center}
+.step .n{width:34px;height:34px;margin:0 auto 10px;border-radius:50%;background:var(--gold-soft);color:var(--warn);font-weight:800;display:grid;place-items:center;border:1px solid color-mix(in srgb, var(--gold) 40%, transparent)}
+.step h3{margin:0 0 5px;font-size:15.5px}
+.step p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+
+/* locked / key form */
+.key-card{margin:30px auto 0;max-width:560px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+.key-card h2{margin:0 0 8px;font-size:20px}
+.key-card p{margin:0 0 16px;font-size:14.5px;color:var(--ink-2);line-height:1.65}
+.key-form{display:grid;gap:10px}
+.key-form label{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.key-form input{width:100%;font-family:inherit;font-size:15px;padding:14px 15px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);min-height:52px}
+.key-form input:focus{outline:2px solid var(--green-2);outline-offset:1px;border-color:var(--green-2)}
+.key-err{display:none;background:#fdecea;color:#8f2d12;border:1px solid #f3c1b4;border-radius:12px;padding:11px 13px;font-size:13.5px;font-weight:600;line-height:1.55}
+@media (prefers-color-scheme: dark){.key-err{background:#2e1a12;color:#f0b9a6;border-color:#5a2f1e}}
+.key-err.on{display:block}
+
+/* help */
+.help{max-width:720px;margin:26px auto 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start}
+@media(max-width:620px){.help{flex-direction:column}}
+.help .h-ic{width:42px;height:42px;flex:none;border-radius:12px;background:var(--lime-soft);display:grid;place-items:center;font-size:19px}
+.help h3{margin:0 0 5px;font-size:16px}
+.help p{margin:0;font-size:14px;color:var(--ink-2);line-height:1.65}
+.help a{color:var(--green-2);font-weight:800}
+
+footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:12.5px;color:var(--ink-3);line-height:1.7}
+footer .foot-in{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="band">🌿 The Wellness Herb · <b>Blend Your Way to Wellness</b> · Buyer download</div>
+
+<header>
+  <div class="wrap header-in">
+    <div class="brand"><img src="assets/favicon-192.png" alt="The Wellness Herb leaf logo" width="36" height="36"/><span>The Wellness Herb<small>thewellnessherb.com</small></span></div>
+    <span class="private-tag">🔒 Private link</span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- CHECKING -->
+    <div class="state on" id="stateChecking" role="status">
+      <div class="checking">
+        <div class="spinner" aria-hidden="true"></div>
+        <p style="font-weight:700;color:var(--ink-2)">Checking your download link…</p>
+      </div>
+    </div>
+
+    <!-- UNLOCKED: payment confirmed -->
+    <div class="state" id="stateUnlocked">
+      <div class="hero">
+        <div class="confirm-badge" aria-hidden="true">✓</div>
+        <h1 class="serif">Payment confirmed — <em>thank you!</em></h1>
+        <p>Your copy of <b>Blend Your Way to Wellness</b> is ready. Download it now and save it somewhere safe — this private link is yours, so bookmark it and you can come back any time.</p>
+      </div>
+
+      <article class="dl-card">
+        <div class="dl-top">
+          <img src="assets/hero-green.webp" alt="Tall glass of vibrant green smoothie with spinach, green apple, cucumber and banana" width="960" height="720"/>
+          <div class="dl-body">
+            <div class="dl-kicker">Your ebook · PDF</div>
+            <h2 class="serif">Blend Your Way to Wellness</h2>
+            <p>Smoothie recipes for weight loss, detox, anti-aging &amp; so much more — 105 detailed recipes, each with exact ingredients, a step-by-step method, a swap and a chef's tip.</p>
+            <div class="meta-grid">
+              <div class="meta"><b>105</b><span>Recipes</span></div>
+              <div class="meta"><b>116</b><span>Pages</span></div>
+              <div class="meta"><b>PDF</b><span>Format</span></div>
+              <div class="meta"><b>3.0 MB</b><span>File size</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="dl-actions">
+          <a class="btn btn-cta" id="dlBtn" href="#" download="Blend-Your-Way-to-Wellness-The-Wellness-Herb.pdf">⬇ Download your book — PDF</a>
+          <p class="micro">Paid via <b>PayPal</b> · Yours to keep forever · Reads on phone, tablet &amp; computer — or print any pages at home.</p>
+          <div class="started" id="startedNote"><b>Your download has started 🎉</b><br/>Check your downloads folder for <b>Blend-Your-Way-to-Wellness-The-Wellness-Herb.pdf</b>. On a phone, it may open in your browser first — tap Share / Save to keep it. Didn't start? Tap the button again — and bookmark this page so you can re-download any time.</div>
+          <div class="link-row">
+            <a class="btn btn-ghost" href="https://www.instagram.com/thewellnessherb" target="_blank" rel="noopener noreferrer">Follow @thewellnessherb</a>
+          </div>
+          <p class="micro">Tip: <b>bookmark this page</b> while you're here — this private link is your personal access, so keep it somewhere safe and don't share it.</p>
+        </div>
+      </article>
+
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Download &amp; save</h3><p>Save the PDF to your phone, tablet or computer so it's always within reach in the kitchen.</p></div>
+        <div class="step"><div class="n">2</div><h3>Start with Day 1</h3><p>Open the 7-Day Kickstart Plan inside the book — your first week is already planned for you.</p></div>
+        <div class="step"><div class="n">3</div><h3>Blend in 5 minutes</h3><p>Every recipe takes about 5 minutes with everyday ingredients and any standard blender.</p></div>
+      </div>
+
+      <div class="help">
+        <div class="h-ic" aria-hidden="true">💬</div>
+        <div>
+          <h3>Any trouble with your download?</h3>
+          <p>Reply to your PayPal receipt email, or message us on <a href="https://www.instagram.com/thewellnessherb" target="_blank" rel="noopener noreferrer">Instagram @thewellnessherb</a> or The Wellness Herb on Facebook — we'll sort your download out. Enjoyed the book? A kind review and a follow mean the world to a small kitchen brand. 🌿</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCKED: no / wrong key -->
+    <div class="state" id="stateLocked">
+      <div class="hero">
+        <div class="confirm-badge lock-badge" aria-hidden="true">🔒</div>
+        <h1 class="serif">This is a <em>private</em> download page</h1>
+        <p>This page is only for buyers of <b>Blend Your Way to Wellness</b>. It opens with the <b>personal access key</b> in your private download link — the one sent to you once your payment is confirmed.</p>
+      </div>
+
+      <div class="key-card">
+        <h2>Have your key? Paste it here</h2>
+        <p>Paste the full private link that was sent to you after your payment was confirmed — or paste just the key (it starts after <b>?k=</b> in your link).</p>
+        <form class="key-form" id="keyForm">
+          <label for="keyInput">Your access key or full download link</label>
+          <input id="keyInput" name="key" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste your key or link here"/>
+          <div class="key-err" id="keyErr">That key doesn't match. Please check you copied the whole link from your payment confirmation, then try again — or message us below and we'll help.</div>
+          <button class="btn btn-cta" type="submit" style="width:100%">Unlock my download →</button>
+        </form>
+      </div>
+
+      <div class="help">
+        <div class="h-ic" aria-hidden="true">🛒</div>
+        <div>
+          <h3>Haven't got the book yet?</h3>
+          <p><b>Blend Your Way to Wellness</b> — 105 detailed smoothie recipes with a 7-Day Kickstart Plan — is available at <a href="https://thewellnessherb.com/" target="_blank" rel="noopener noreferrer">thewellnessherb.com</a> for $9.99. Already paid but lost your link? Message <a href="https://www.instagram.com/thewellnessherb" target="_blank" rel="noopener noreferrer">@thewellnessherb</a> with your PayPal receipt and we'll resend it.</p>
+        </div>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="key-card" style="margin-top:30px">
+        <h2>JavaScript is needed to open this page</h2>
+        <p>Your private download link is checked in your browser. Please enable JavaScript and reload this page using the full link from your payment confirmation.</p>
+      </div>
+    </noscript>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© The Wellness Herb · Blend Your Way to Wellness — digital PDF ebook.</span>
+    <span>This private page is for verified buyers only. Please don't share your personal link.</span>
+  </div>
+  <div class="wrap" style="margin-top:10px">This book is for general wellness and enjoyment and is not medical advice. Always check ingredient labels for your own allergies.</div>
+</footer>
+
+<script>
+/*
+  Private-link gate.
+  - Only the SHA-256 hash of the access key lives in this file — the key
+    itself is never written here.
+  - The key travels in the link's query (?k=...) or fragment (#k=...).
+  - The book file itself sits behind a long random filename that is only
+    revealed after the key checks out.
+*/
+var CONFIG = {
+  ACCESS_HASH: "c59c432c07d04588836ebdf1304516c77e15808b4a5350b3881f0cc30724508d",
+  FILE_PATH: "assets/dl-a81f9e07c3d54b2e91f7c8aa.pdf"
+};
+
+function showState(id){
+  var ids = ["stateChecking","stateUnlocked","stateLocked"];
+  for (var i=0;i<ids.length;i++){
+    document.getElementById(ids[i]).classList.toggle("on", ids[i]===id);
+  }
+}
+
+function extractKey(raw){
+  if(!raw) return "";
+  var s = String(raw).trim();
+  var m = s.match(/[?&#]k=([^&#\s]+)/);
+  if(m) return decodeURIComponent(m[1]).trim();
+  m = s.match(/[?&#](?:key|access)=([^&#\s]+)/);
+  if(m) return decodeURIComponent(m[1]).trim();
+  return s;
+}
+
+function keyFromUrl(){
+  var fromSearch = "";
+  try{
+    var p = new URLSearchParams(window.location.search);
+    fromSearch = p.get("k") || p.get("key") || p.get("access") || "";
+  }catch(e){}
+  if(fromSearch) return fromSearch.trim();
+  if(window.location.hash && window.location.hash.length > 1){
+    return extractKey(window.location.hash);
+  }
+  return "";
+}
+
+function sha256Hex(text){
+  var enc = new TextEncoder().encode(text);
+  return crypto.subtle.digest("SHA-256", enc).then(function(buf){
+    var bytes = new Uint8Array(buf), hex = "";
+    for(var i=0;i<bytes.length;i++){ hex += ("0"+bytes[i].toString(16)).slice(-2); }
+    return hex;
+  });
+}
+
+var unlockedKey = "";
+
+function unlock(key){
+  unlockedKey = key;
+  try{ sessionStorage.setItem("wh_dl_key", key); }catch(e){}
+  var btn = document.getElementById("dlBtn");
+  btn.setAttribute("href", CONFIG.FILE_PATH);
+  showState("stateUnlocked");
+  // Keep the key in the address bar (so the buyer can bookmark / copy it)
+  // but move it out of the fragment form into ?k= for consistency.
+  try{
+    var url = new URL(window.location.href);
+    url.hash = "";
+    url.searchParams.set("k", key);
+    window.history.replaceState(null, "", url.toString());
+  }catch(e){}
+}
+
+function checkKey(key){
+  if(!key || !window.crypto || !crypto.subtle){
+    showState("stateLocked");
+    return;
+  }
+  sha256Hex(key).then(function(hex){
+    if(hex === CONFIG.ACCESS_HASH){ unlock(key); }
+    else{ showState("stateLocked"); }
+  }).catch(function(){ showState("stateLocked"); });
+}
+
+// Initial check: URL first, then this tab's session.
+var initialKey = keyFromUrl();
+if(!initialKey){
+  try{ initialKey = sessionStorage.getItem("wh_dl_key") || ""; }catch(e){ initialKey = ""; }
+}
+if(initialKey){ checkKey(initialKey); } else { showState("stateLocked"); }
+
+// Paste-key form
+document.getElementById("keyForm").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var val = extractKey(document.getElementById("keyInput").value);
+  var err = document.getElementById("keyErr");
+  err.classList.remove("on");
+  if(!val){ err.classList.add("on"); return; }
+  if(!window.crypto || !crypto.subtle){ err.classList.add("on"); return; }
+  sha256Hex(val).then(function(hex){
+    if(hex === CONFIG.ACCESS_HASH){ unlock(val); }
+    else{ err.classList.add("on"); }
+  }).catch(function(){ err.classList.add("on"); });
+});
+
+// Download feedback
+document.getElementById("dlBtn").addEventListener("click", function(){
+  document.getElementById("startedNote").classList.add("on");
+});
+
+</script>
+</body>
+</html>
