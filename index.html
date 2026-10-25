@@ -370,6 +370,23 @@ section{padding:64px 0}
 .how-card h3{margin:0 0 6px;font-size:15.5px}
 .how-card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.6}
 
+/* reviews & stars */
+.reviews-panel{border:1.5px solid color-mix(in srgb, var(--gold) 45%, var(--line));border-radius:24px;background:var(--card);box-shadow:var(--shadow);padding:44px 36px}
+@media(max-width:720px){.reviews-panel{padding:30px 18px}}
+.stars{color:var(--gold);letter-spacing:.16em;line-height:1;font-size:20px}
+.stars-hero{font-size:clamp(40px,8vw,58px);text-align:center;margin-bottom:16px}
+.star-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.star-card .stars{margin-bottom:12px}
+.star-card h3{margin:0 0 8px;font-size:17px}
+.star-card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.65}
+.card-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:14px}
+.trust-star{width:40px;height:40px;border-radius:50%;background:var(--gold-soft);color:#b57d0d;border:1px solid color-mix(in srgb, var(--gold) 45%, transparent);display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+@media (prefers-color-scheme: dark){.trust-star{color:var(--gold)}}
+.rate-panel{max-width:760px;margin:30px auto 0;text-align:center;background:var(--gold-soft);border:1px solid color-mix(in srgb, var(--gold) 35%, transparent);border-radius:18px;padding:28px 24px}
+.rate-panel h3{margin:10px 0 8px;font-size:24px}
+.rate-panel p{margin:0 auto 18px;color:var(--ink-2);font-size:15px;line-height:1.65;max-width:520px}
+.rate-panel .btn-ghost{background:var(--card)}
+
 /* faq */
 .faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -779,25 +796,31 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   <!-- READER REVIEWS & TRUST -->
   <section id="reviews">
     <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Reader reviews &amp; trust</div>
-        <h2 class="serif">A new book — and a purchase with nothing hidden</h2>
-        <p>Blend Your Way to Wellness launched in October 2026, so verified reader reviews are still being collected. Until they appear here, this is exactly what every copy includes — and the protections standing behind your $9.99.</p>
+      <div class="reviews-panel">
+        <div class="stars stars-hero" role="img" aria-label="Five gold stars">★★★★★</div>
+        <div class="section-head" style="margin-bottom:30px">
+          <div class="kicker">Reader reviews</div>
+          <h2 class="serif">Reader reviews — the stars are waiting for yours</h2>
+          <p><i>Blend Your Way to Wellness</i> launched in October 2026, so verified reader reviews are still being collected — the first real ones will be featured right here, stars and all. Until then, here's exactly what every copy includes, and the protections standing behind your $9.99.</p>
+        </div>
+        <div class="pain-grid">
+          <article class="star-card"><div class="stars" aria-hidden="true">★★★★★</div><h3>105 complete recipes</h3><p>Every recipe in full — exact ingredients with weights, a step-by-step method, approximate calories, a dairy-free / nut-free swap and a chef's tip on every page. No teasers, no filler.</p><span class="card-tag">Inside every copy</span></article>
+          <article class="star-card"><div class="stars" aria-hidden="true">★★★★★</div><h3>5 minutes each</h3><p>Built for real mornings: a basic blender and ingredients from any normal grocery store. One glass a day is a small routine that's genuinely easy to keep.</p><span class="card-tag">Inside every copy</span></article>
+          <article class="star-card"><div class="stars" aria-hidden="true">★★★★★</div><h3>7-Day Kickstart Plan included</h3><p>Your first week is planned day by day — plus the 4-Part Smoothie Formula, the pantry staples list and a printable fill-in planner, all in the same PDF.</p><span class="card-tag">Inside every copy</span></article>
+        </div>
+        <div class="pain-grid" style="margin-top:18px">
+          <article class="pain-card"><div class="trust-star" aria-hidden="true">★</div><h3>PayPal Buyer Protection</h3><p>Payment runs entirely through PayPal's secure checkout, and <b>PayPal Buyer Protection</b> covers your purchase. We never see or store your card details.</p></article>
+          <article class="pain-card"><div class="trust-star" aria-hidden="true">★</div><h3>Instant download, yours forever</h3><p>Your PDF download starts right after payment — one payment of $9.99, no subscription, no upsells, no account to create. Keep it on your phone, tablet and computer, and print any pages you like.</p></article>
+          <article class="pain-card"><div class="trust-star" aria-hidden="true">★</div><h3>Real help &amp; clear refunds</h3><p>Anything wrong with your download? Email <a href="mailto:contact@thewellnessherb.com"><b>contact@thewellnessherb.com</b></a> and we'll sort it out. Refunds are spelled out in plain language in our <a href="#refund" data-page-link="refund"><b>Refund Policy</b></a>.</p></article>
+        </div>
+        <div class="rate-panel">
+          <div class="stars" style="font-size:26px" aria-hidden="true">★★★★★</div>
+          <h3 class="serif">Read it? Rate it.</h3>
+          <p>Real reader reviews will be featured in this section. Send us your star rating and a line or two about your favourite recipe — we'd love to hear what you think.</p>
+          <a class="btn btn-ghost" href="mailto:contact@thewellnessherb.com?subject=My%20star%20rating%20for%20Blend%20Your%20Way%20to%20Wellness">★ Write a review — share your star rating</a>
+        </div>
+        <div style="text-align:center;margin-top:26px"><button class="btn btn-cta js-buy" type="button">Get instant access — $9.99</button></div>
       </div>
-      <div class="pain-grid">
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Complete recipes, not teasers</h3><p>All 105 recipes come in full — exact ingredients with weights, a step-by-step method, a dairy-free / nut-free swap and a chef's tip on every page, plus the 7-Day Kickstart Plan, the 4-Part Formula, the pantry list and the planner.</p></article>
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Built for real mornings</h3><p>Every smoothie takes about 5 minutes in a basic blender with ingredients from a normal grocery store — a small daily routine that's easy to keep, with your first week already planned for you.</p></article>
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Yours, simply</h3><p>One payment of $9.99 — no subscription, no upsells, no account to create. The PDF is yours to keep forever, on your phone, tablet and computer, and you can print any pages you like.</p></article>
-      </div>
-      <div class="pain-grid" style="margin-top:18px">
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Secure PayPal checkout</h3><p>Payment runs entirely through PayPal, and <b>PayPal Buyer Protection</b> covers your purchase. We never see or store your card details.</p></article>
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Instant download, real help</h3><p>Your download starts right after payment. If anything goes wrong with it, email <a href="mailto:contact@thewellnessherb.com"><b>contact@thewellnessherb.com</b></a> and we'll sort it out.</p></article>
-        <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>Clear refund terms</h3><p>Refunds are spelled out in plain language in our <a href="#refund" data-page-link="refund"><b>Refund Policy</b></a> — full refunds for failed, duplicate or undelivered downloads, and a fair 14-day window to email us if the book isn't for you.</p></article>
-      </div>
-      <div class="sample-why" style="max-width:760px;margin:26px auto 0;text-align:center;font-size:15px">
-        <b>Readers — your honest words belong here.</b><br/>Tried a recipe you love? Email your review to <a href="mailto:contact@thewellnessherb.com"><b>contact@thewellnessherb.com</b></a> and we will feature real reader reviews here.
-      </div>
-      <div style="text-align:center;margin-top:24px"><button class="btn btn-cta js-buy" type="button">Get instant access — $9.99</button></div>
     </div>
   </section>
 
