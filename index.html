@@ -492,29 +492,7 @@ footer a{font-weight:700;color:var(--ink-2)}
 .foot-col a{display:block;padding:3px 0;text-decoration:none}
 .foot-col a:hover{color:var(--green)}
 .foot-col p a{display:inline;padding:0}
-.foot-link-btn{display:block;background:none;border:0;padding:3px 0;font:inherit;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;text-align:left}
-.foot-link-btn:hover{color:var(--green)}
 .foot-brand p{margin:0 0 8px}
-
-/* ---------- Cookie consent (GDPR / CCPA friendly) ---------- */
-.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:130;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);padding:20px;max-width:620px}
-@media(min-width:721px){.cookie-banner{left:24px;right:auto;bottom:24px}}
-.cookie-banner[hidden]{display:none}
-.cookie-banner h3{margin:0 0 6px;font-size:16.5px}
-.cookie-banner p{margin:0 0 14px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
-.cookie-banner p a{color:var(--green-2);font-weight:700}
-.cb-btns{display:flex;gap:8px;flex-wrap:wrap}
-.cb-btns .btn{min-height:46px}
-@media(max-width:520px){.cb-btns .btn{flex:1 1 46%}.cb-btns .btn:first-child{flex:1 1 100%}}
-.ck-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.ck-row b{font-size:15px;display:block}
-.ck-row span{font-size:13px;color:var(--ink-2);line-height:1.55;display:block}
-.switch{width:52px;height:30px;border-radius:999px;background:var(--line);border:0;cursor:pointer;flex:none;position:relative;transition:.18s;margin-top:2px;padding:0}
-.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:.18s}
-.switch[aria-checked="true"]{background:var(--green)}
-.switch[aria-checked="true"]::after{left:25px}
-.switch[disabled]{opacity:.55;cursor:not-allowed}
-#cookieModal{z-index:140}
 
 /* ---------- Mobile polish: most visitors are on phones ---------- */
 button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
@@ -556,6 +534,14 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .price-now{font-size:36px}
   .float-price{right:6px;padding:10px 12px}
   .float-price b{font-size:19px}
+}
+
+/* ---------- Mobile: only ONE sticky bar (the bottom buy bar) ---------- */
+@media(max-width:767px){
+  .top-sticky{position:static}
+  header{position:static}
+  .buy-box{position:static}
+  footer{padding-bottom:calc(124px + env(safe-area-inset-bottom))}
 }
 </style>
 </head>
@@ -957,7 +943,6 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <a href="#delivery" data-page-link="delivery">Delivery Policy</a>
         <a href="#cookies" data-page-link="cookies">Cookie Policy</a>
         <a href="#disclaimer" data-page-link="disclaimer">Health Disclaimer</a>
-        <button type="button" class="foot-link-btn" id="cookieSettingsBtn">Cookie Settings</button>
       </nav>
     </div>
     <p class="disclaimer">Disclaimer: This book and page are for general wellness and enjoyment. They are not medical advice and are not intended to diagnose, treat, cure or prevent any disease. Nutritional values in the book are approximate estimates. If you are pregnant, breastfeeding, managing a medical condition, taking medication, or have food allergies, please consult a qualified health professional before changing your diet. Copyright © 2026 The Wellness Herb. All rights reserved.</p>
@@ -1041,7 +1026,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     <ul>
       <li><b>When you contact us:</b> your name, email address, and the contents of your message, so we can reply.</li>
       <li><b>When you buy:</b> payment is processed entirely by <b>PayPal</b>. We receive order details from PayPal (your name, email address, country, item, amount and transaction ID) so we can deliver your book and provide support. <b>We never see or store your card or bank details.</b></li>
-      <li><b>Automatically:</b> like most websites, our hosting provider keeps standard technical logs (IP address, browser type, pages visited, timestamps) for security and operation. This static page itself sets <b>no tracking cookies</b>; optional cookie categories stay off unless you switch them on in our cookie banner (see the <a href="#cookies" data-page-link="cookies">Cookie Policy</a>).</li>
+      <li><b>Automatically:</b> like most websites, our hosting provider keeps standard technical logs (IP address, browser type, pages visited, timestamps) for security and operation. This static page itself sets <b>no tracking cookies</b> (see the <a href="#cookies" data-page-link="cookies">Cookie Policy</a>).</li>
     </ul>
     <h2>2. Why we use it (legal bases)</h2>
     <ul>
@@ -1049,7 +1034,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
       <li>To <b>answer enquiries</b> and handle refunds — contract and our legitimate interests.</li>
       <li>To <b>keep the site secure</b> and prevent fraud — legitimate interests.</li>
       <li>To meet <b>legal obligations</b> such as tax and accounting records.</li>
-      <li>Optional analytics/marketing cookies are used <b>only with your consent</b>, which you can withdraw at any time.</li>
+      <li>We do not use optional analytics or marketing cookies on this page, and there is no cookie-consent popup or settings control on this page.</li>
     </ul>
     <h2>3. Who we share it with</h2>
     <p>We share personal data only with the service providers needed to run this site and fulfil orders — principally <b>PayPal</b> (payment processing, under PayPal's own privacy policy) and our website hosting and email providers, who process data on our instructions. We may disclose data where required by law or to protect our legal rights. <b>We do not sell your personal data, and we do not share it for third-party advertising</b> — so there is nothing to "opt out" of under "Do Not Sell" laws; if that ever changes, we will update this policy and add an opt-out first.</p>
@@ -1164,21 +1149,20 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     <p class="pv-meta">Last updated: 24 October 2026 · Written for GDPR, UK GDPR, ePrivacy, CCPA/CPRA and similar laws worldwide</p>
     <p>Cookies are small files stored on your device when you visit a website. This page explains the categories used here and how you control them.</p>
     <h2>The honest headline</h2>
-    <p>This is a simple static sales page. <b>It runs no advertising trackers and sets no marketing cookies of its own.</b> Optional categories below stay <b>off</b> unless you switch them on — that's the rule under GDPR-style laws, and we follow it everywhere in the world, not just in Europe.</p>
+    <p>This is a simple static sales page. <b>It runs no advertising trackers and sets no marketing cookies of its own.</b></p>
     <h2>Cookie categories</h2>
     <ul>
-      <li><b>Strictly necessary — always on.</b> Needed for the page to load securely and function, including remembering the cookie choices you make during your visit. These don't track you and can't be switched off here (you can still block all cookies in your browser).</li>
-      <li><b>Functional / preferences — your choice.</b> Remembers display preferences so the site works the way you like it.</li>
-      <li><b>Analytics — your choice, off by default.</b> If we ever add privacy-respecting visit statistics, they will only run with your consent and help us understand which recipes people love.</li>
-      <li><b>Marketing — your choice, off by default.</b> We currently use none. If that changes, marketing cookies will only ever activate after you opt in.</li>
+      <li><b>Strictly necessary — always on.</b> Needed for the page to load securely and function. These don't track you (you can still block all cookies in your browser).</li>
+      <li><b>Functional / preferences.</b> May remember display preferences so the site works the way you like it.</li>
+      <li><b>Analytics.</b> We currently use no optional analytics cookies on this page.</li>
+      <li><b>Marketing.</b> We currently use none.</li>
     </ul>
     <h2>Third parties</h2>
     <p>Checkout happens on <b>paypal.com</b>: when you pay, PayPal sets its own cookies under <b>PayPal's Cookie Policy</b> to run its secure checkout and prevent fraud. Our social links (Instagram, Facebook, YouTube) are plain links — they set nothing until you choose to visit them.</p>
     <h2>How to control cookies</h2>
     <ul>
-      <li>Use the <b>cookie banner</b> when you arrive: Accept all, Reject optional, or Customise each category.</li>
-      <li>Change your mind anytime via <b>"Cookie Settings"</b> in the footer of this page.</li>
-      <li>Your choices apply to your current visit; you can also block or delete cookies in your browser settings at any time. Blocking necessary cookies may stop parts of the page or checkout from working.</li>
+      <li>You can block or delete cookies in your browser settings at any time. Blocking necessary cookies may stop parts of the page or checkout from working.</li>
+      <li>Checkout happens on PayPal's site, where PayPal's own cookie controls apply.</li>
     </ul>
     <p>Questions about cookies or privacy: <a href="mailto:contact@thewellnessherb.com">contact@thewellnessherb.com</a> · See also our <a href="#privacy" data-page-link="privacy">Privacy Policy</a>.</p>
   </article></div>
@@ -1203,44 +1187,6 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     <p>Calorie and nutrition figures in the book are approximate estimates based on standard ingredient values and will vary with your exact ingredients and portions. Individual results — including any weight change — vary from person to person and are never guaranteed. The "Weight Loss" recipes are designed to be filling and fibre-rich as part of a balanced diet; "detox" recipes support hydration and lighter habits — your body does its own detoxing.</p>
     <p>If you feel unwell after any food, stop and seek medical care. Questions: <a href="mailto:contact@thewellnessherb.com">contact@thewellnessherb.com</a>.</p>
   </article></div>
-</div>
-
-<!-- COOKIE CONSENT BANNER -->
-<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
-  <h3>Your privacy, your choice — worldwide</h3>
-  <p>We use cookies to run this site securely. Optional cookies (preferences, analytics, marketing) stay <b>off</b> unless you allow them — in line with GDPR, UK GDPR, CCPA and other privacy laws. We never sell your data. See our <a href="#cookies" data-page-link="cookies">Cookie Policy</a>.</p>
-  <div class="cb-btns">
-    <button class="btn btn-cta btn-sm" type="button" id="ckAccept">Accept all</button>
-    <button class="btn btn-ghost btn-sm" type="button" id="ckReject">Reject optional</button>
-    <button class="btn btn-ghost btn-sm" type="button" id="ckCustom">Customise</button>
-  </div>
-</div>
-
-<!-- COOKIE PREFERENCES -->
-<div class="modal-back" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
-  <div class="modal">
-    <h3 id="cookieModalTitle" class="serif">Cookie preferences</h3>
-    <p>Choose which optional cookie categories may run. Necessary cookies keep the site working and are always on. Your choices apply immediately and you can change them anytime from "Cookie Settings" in the footer.</p>
-    <div class="ck-row">
-      <div><b>Strictly necessary</b><span>Security, page function, and remembering these choices during your visit.</span></div>
-      <button class="switch" type="button" role="switch" aria-checked="true" disabled aria-label="Strictly necessary cookies — always on"></button>
-    </div>
-    <div class="ck-row">
-      <div><b>Functional / preferences</b><span>Remembers display preferences so the site works the way you like it.</span></div>
-      <button class="switch" type="button" role="switch" aria-checked="false" data-ck="functional" aria-label="Functional and preference cookies"></button>
-    </div>
-    <div class="ck-row">
-      <div><b>Analytics</b><span>Anonymous visit statistics that help us improve the site and our recipes.</span></div>
-      <button class="switch" type="button" role="switch" aria-checked="false" data-ck="analytics" aria-label="Analytics cookies"></button>
-    </div>
-    <div class="ck-row">
-      <div><b>Marketing</b><span>Used to measure campaigns and show relevant offers. Off unless you opt in.</span></div>
-      <button class="switch" type="button" role="switch" aria-checked="false" data-ck="marketing" aria-label="Marketing cookies"></button>
-    </div>
-    <button class="btn btn-cta btn-block" type="button" id="ckSave" style="margin-top:18px">Save my choices</button>
-    <button class="btn btn-ghost btn-block" type="button" id="ckAcceptAll2" style="margin-top:10px">Accept all cookies</button>
-    <button class="btn btn-ghost btn-block" type="button" id="ckClose" style="margin-top:10px">Close without saving</button>
-  </div>
 </div>
 
 <!-- STICKY MOBILE BAR -->
@@ -1406,61 +1352,6 @@ if(copyBtn){
   });
 }
 
-/* ---------- Cookie consent: global / GDPR-friendly ----------
-   Optional categories stay OFF until the visitor opts in. Choices are
-   kept for this visit and applied immediately; they can be changed
-   anytime from "Cookie Settings" in the footer. */
-var consentState = { functional:false, analytics:false, marketing:false };
-var consentDecided = false;
-var cookieBanner = document.getElementById('cookieBanner');
-var cookieModal = document.getElementById('cookieModal');
-
-function applyConsent(){
-  document.documentElement.setAttribute('data-consent-functional', consentState.functional ? 'on' : 'off');
-  document.documentElement.setAttribute('data-consent-analytics', consentState.analytics ? 'on' : 'off');
-  document.documentElement.setAttribute('data-consent-marketing', consentState.marketing ? 'on' : 'off');
-}
-function setSwitch(name, val){
-  var sw = document.querySelector('.switch[data-ck="' + name + '"]');
-  if(sw) sw.setAttribute('aria-checked', val ? 'true' : 'false');
-}
-function readSwitch(name){
-  var sw = document.querySelector('.switch[data-ck="' + name + '"]');
-  return sw ? sw.getAttribute('aria-checked') === 'true' : false;
-}
-function saveConsent(f, a, m){
-  consentState.functional = !!f; consentState.analytics = !!a; consentState.marketing = !!m;
-  consentDecided = true;
-  applyConsent();
-  cookieBanner.hidden = true;
-  closeCookieModal();
-}
-function openCookieModal(){
-  setSwitch('functional', consentState.functional);
-  setSwitch('analytics', consentState.analytics);
-  setSwitch('marketing', consentState.marketing);
-  cookieModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCookieModal(){
-  cookieModal.classList.remove('open');
-  if(!pageOpen && !modal.classList.contains('open')){ document.body.style.overflow = ''; }
-}
-document.querySelectorAll('.switch[data-ck]').forEach(function(sw){
-  sw.addEventListener('click', function(){
-    sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
-  });
-});
-document.getElementById('ckAccept').addEventListener('click', function(){ saveConsent(true, true, true); });
-document.getElementById('ckReject').addEventListener('click', function(){ saveConsent(false, false, false); });
-document.getElementById('ckCustom').addEventListener('click', openCookieModal);
-document.getElementById('ckSave').addEventListener('click', function(){ saveConsent(readSwitch('functional'), readSwitch('analytics'), readSwitch('marketing')); });
-document.getElementById('ckAcceptAll2').addEventListener('click', function(){ saveConsent(true, true, true); });
-document.getElementById('ckClose').addEventListener('click', closeCookieModal);
-cookieModal.addEventListener('click', function(e){ if(e.target === cookieModal) closeCookieModal(); });
-document.getElementById('cookieSettingsBtn').addEventListener('click', openCookieModal);
-applyConsent();
-setTimeout(function(){ if(!consentDecided){ cookieBanner.hidden = false; } }, 900);
 </script>
 </body>
 </html>
