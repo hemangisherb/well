@@ -196,10 +196,34 @@ a{color:inherit}
 .wrap{width:min(1160px,100% - 40px);margin:0 auto}
 .serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400;letter-spacing:-.01em}
 
-/* announcement */
-.announce{background:var(--bg-deep);color:#fff;text-align:center;padding:10px 16px;font-size:13.5px;font-weight:700;letter-spacing:.01em}
+/* announcement — sticky launch-offer bar */
+.top-sticky{position:sticky;top:0;z-index:70}
+.announce{background:var(--bg-deep);color:#fff;padding:9px 16px;font-size:13.5px;font-weight:700;letter-spacing:.01em;border-bottom:1px solid rgba(255,255,255,.14)}
+.announce-in{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;text-align:center}
 .announce b{color:#ffd166}
-.announce span{opacity:.85;font-weight:600}
+.announce s{opacity:.75}
+.announce .btn{flex:none;box-shadow:none}
+@media(max-width:720px){.announce{padding:8px 10px}.announce-in{gap:8px;font-size:12.5px;line-height:1.45}.announce .btn{min-height:40px;padding:9px 14px;font-size:13px}}
+
+/* reusable CTA block: button + micro-copy + proof, used after every section */
+.cta-block{text-align:center;margin-top:28px}
+.cta-block .micro{max-width:560px;margin-left:auto;margin-right:auto}
+.cta-proof{display:flex;align-items:center;justify-content:center;gap:8px 14px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.cta-proof .stars{font-size:15px}
+.cta-proof .badge{display:inline-flex;align-items:center;gap:5px}
+.bg-deep .cta-proof{color:#c4d6c4}
+
+/* hero urgency line */
+.urgency-line{background:var(--gold-soft);border:1px solid color-mix(in srgb, var(--gold) 45%, transparent);border-radius:14px;padding:13px 16px;font-size:15px;line-height:1.6;color:var(--ink);margin:0 0 20px;max-width:540px}
+.urgency-line b{color:var(--ink)}
+
+/* value math strip */
+.value-math{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 auto 30px;max-width:960px}
+@media(max-width:760px){.value-math{grid-template-columns:1fr}}
+.vm-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.vm-card b{display:block;font-size:19px;line-height:1.25;margin-bottom:5px}
+.vm-card b em{font-style:normal;color:var(--cta)}
+.vm-card span{font-size:13.5px;color:var(--ink-2);line-height:1.55;display:block}
 
 /* header */
 header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -504,8 +528,9 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .brand{font-size:15.5px;gap:8px}
   .brand-mark{width:32px;height:32px;border-radius:9px;font-size:16px}
   .brand small{font-size:9.5px;letter-spacing:.09em}
-  header .btn-sm{font-size:0;padding:11px 16px;min-height:46px;flex:none}
-  header .btn-sm::after{content:"Buy — $9.99";font-size:14px;font-weight:800}
+  header .btn-sm{font-size:11px;padding:10px 10px;min-height:44px;flex:none;white-space:nowrap}
+  .brand{font-size:13px;flex:none;white-space:nowrap}
+  .brand small{display:none}
   .announce{font-size:12.5px;padding:9px 12px;line-height:1.55}
   .price-row{gap:9px}
   .price-now{font-size:40px}
@@ -519,7 +544,8 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .ch-body{padding:18px}
   .sticky-bar .sb-price b{font-size:18px}
   .sticky-bar .sb-price span{font-size:0}
-  .sticky-bar .sb-price span::after{content:"Save 50% · 105 recipes · Instant PDF";font-size:11px;white-space:nowrap}
+  .sticky-bar .sb-price span::after{content:"Launch offer · SAVE 50% · Instant access";font-size:11px;white-space:nowrap}
+  .sticky-bar .btn{font-size:13px!important;padding:12px 13px!important;white-space:normal;line-height:1.3}
   .sticky-bar .btn{min-height:48px}
   .modal{padding:22px 18px}
   .modal-price{flex-wrap:wrap;gap:6px}
@@ -535,14 +561,16 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 </head>
 <body>
 
-<div class="announce">🌿 New book — <b>Blend Your Way to Wellness</b> <span>· 105 detailed recipes · instant PDF</span> · <s style="opacity:.75">$19.99</s> <b>Now just $9.99 — 50% off</b></div>
+<div class="top-sticky">
+<div class="announce"><div class="announce-in"><span>Launch offer: <s>$19.99</s> → <b>$9.99 — SAVE 50%</b> · Get instant access</span><a class="btn btn-cta btn-sm" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW" target="_blank" rel="noopener">Get instant access now — $9.99</a></div></div>
 
 <header>
   <div class="wrap header-in">
     <a class="brand" href="#top"><span class="brand-mark"><img src="data:image/png;base64,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" alt="The Wellness Herb leaf logo" width="36" height="36" style="width:100%;height:100%;border-radius:10px"/></span><span>The Wellness Herb<small>thewellnessherb.com</small></span></a>
-    <button class="btn btn-cta btn-sm js-buy" type="button">Get the book — $9.99</button>
+    <button class="btn btn-cta btn-sm js-buy" type="button">Get instant access now — $9.99</button>
   </div>
 </header>
+</div>
 
 <main id="top">
   <!-- HERO -->
@@ -552,6 +580,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <span class="eyebrow">✦ New book · Instant PDF download</span>
         <h1 class="serif">One glass a day. <em>105 ways</em> to actually enjoy it.</h1>
         <p class="hero-sub">Made for <b>busy people who skip breakfast</b> or are tired of boring “healthy” food: <b>Blend Your Way to Wellness</b> gives you 105 detailed recipes with <b>exact amounts</b>, each ready in <b>5 minutes</b> from any normal store — plus a <b>7-Day Kickstart Plan</b> and the <b>4-Part Formula</b>, so your first week is already planned.</p>
+        <p class="urgency-line">⏱ <b>Download tonight, blend Day 1 tomorrow morning</b> — don't wait through another week of skipped breakfasts and coffee-only mornings.</p>
         <ul class="checks">
           <li><span class="check-ic">✓</span><span><b>105 full recipes</b> — exact amounts, weights, blend order &amp; texture checks. No guesswork.</span></li>
           <li><span class="check-ic">✓</span><span><b>A swap in every recipe</b> — dairy-free, nut-free or lighter, so it fits your kitchen.</span></li>
@@ -559,13 +588,13 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         </ul>
         <div class="price-row">
           <span class="price-was">$19.99</span><span class="price-now">$9.99</span><span class="price-save">SAVE 50%</span>
-          <span class="price-per">Regular price <b>$19.99</b> — now just <b>$9.99</b>, a one-time payment. That's <b>under 10¢ per recipe</b> — less than one store-bought smoothie, and it's yours forever.</span>
+          <span class="price-per">Launch offer: regular price <b>$19.99</b> — now just <b>$9.99</b>, a one-time payment. That's <b>under 10¢ per recipe</b> (105 recipes for $9.99), yours forever — while a café smoothie habit is money spent again every single time.</span>
         </div>
         <div class="hero-cta">
-          <button class="btn btn-cta js-buy" type="button">Get instant access — $9.99</button>
+          <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
           <a class="btn btn-ghost" href="#peek">Peek inside first ↓</a>
         </div>
-        <p class="micro" style="text-align:left"><b>One-time payment · No subscription · Instant PDF download · Secure PayPal checkout</b></p>
+        <p class="micro" style="text-align:left"><b>One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</b></p>
         <div class="hero-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews are still being collected — <a href="#reviews">see the reviews &amp; trust section ↓</a></span></div>
         <div class="trust-row">
           <span>🛡 PayPal Buyer Protection</span><span>⚡ Instant download</span><span>📖 105 recipes</span><span>📄 116 pages</span>
@@ -598,6 +627,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <div class="how-card"><div class="how-n">2</div><h3>Download instantly</h3><p>You're taken straight to your download after payment. No waiting, no shipping.</p></div>
         <div class="how-card"><div class="how-n">3</div><h3>Blend tomorrow</h3><p>Open the PDF on any device, pick Day 1 of the Kickstart, and blend in 5 minutes.</p></div>
       </div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
@@ -615,7 +649,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <article class="pain-card"><div class="pain-x">✕</div><h3>Recipes that don't work</h3><p>Vague “a handful of this” instructions, weird powders you have to order online, and smoothies that come out watery, bitter, or somehow both.</p></article>
       </div>
       <p class="turn">This book fixes all three: <b>real flavour, 5 minutes, exact measurements</b> — and a simple formula so you can eventually invent your own. One enjoyable glass a day is a habit that actually sticks. And every week you wait is another week of skipped breakfasts and coffee-only mornings — while the complete book is just <b>$9.99, under 10¢ per recipe</b> for all 105 of them.</p>
-      <div style="text-align:center;margin-top:22px"><button class="btn btn-cta js-buy" type="button">Start tomorrow morning — $9.99 →</button></div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
@@ -665,8 +703,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
           </div>
         </article>
       </div>
-      <div style="text-align:center;margin-top:30px"><button class="btn btn-cta js-buy" type="button">Get instant access — $9.99</button>
-      <p class="micro">One-time PayPal payment · Instant PDF download · <s>$19.99</s> $9.99 — SAVE 50%</p></div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
@@ -697,7 +738,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         </div>
       </article>
       <p class="sample-note">Like this one? There are <b>104 more</b> just like it — each with the full 6-step method, swap &amp; chef's tip.</p>
-      <div style="text-align:center;margin-top:18px"><button class="btn btn-cta js-buy" type="button">Unlock all 105 recipes — $9.99 →</button></div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
@@ -723,6 +768,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <article class="inc-card"><div class="inc-free">Included free</div><h3>Pantry Staples List</h3><p>The short shopping list behind almost every recipe. Stock it once and you're ready for 100+ smoothies.</p></article>
         <article class="inc-card"><div class="inc-free">Included free</div><h3>Fill-in 7-Day Planner</h3><p>A printable planner page in the book to map your week, note favourites, and build the one-glass-a-day habit.</p></article>
       </div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro" style="color:#9db89d">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
@@ -731,9 +781,15 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Simple, honest pricing</div>
-        <h2 class="serif">Everything you get, for less than one café smoothie</h2>
-        <p>Regular price <b>$19.99</b> — discounted to <b>$9.99</b>. No subscription. No upsells waiting at checkout. One payment, yours forever.</p>
+        <h2 class="serif">Everything you get for $9.99 — under 10¢ per recipe</h2>
+        <p>Launch offer: regular price <b><s>$19.99</s></b> — now <b>$9.99 (SAVE 50%)</b>. No subscription. No upsells waiting at checkout. One payment, yours forever.</p>
       </div>
+      <div class="value-math">
+        <div class="vm-card"><b><em>Under 10¢</em> per recipe</b><span>$9.99 ÷ 105 recipes = about 9.5¢ each — and the book is yours forever, no repeat spend.</span></div>
+        <div class="vm-card"><b>5 minutes, everyday ingredients</b><span>Every recipe takes 5 minutes with a basic blender and food from any normal store.</span></div>
+        <div class="vm-card"><b>First week already planned</b><span>The 7-Day Kickstart Plan is included — download tonight, blend Day 1 tomorrow morning.</span></div>
+      </div>
+      <p style="text-align:center;max-width:640px;margin:0 auto 28px;color:var(--ink-2);font-size:15px;line-height:1.65">Think about the café smoothie habit instead: bought again and again, gone in ten minutes. This is <b style="color:var(--ink)">$9.99 once</b> for <b style="color:var(--ink)">105 recipes you keep forever</b>.</p>
       <div class="buy-grid">
         <div>
           <div class="stack" aria-label="What is included and its value">
@@ -757,13 +813,20 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
             <li><span>✓</span> Approx. calories on every recipe</li>
             <li><span>✓</span> Read on phone, tablet, computer — or print it</li>
           </ul>
-          <button class="btn btn-cta btn-block js-buy" type="button" style="font-size:17px;padding:17px 20px">Get instant access — $9.99</button>
+          <button class="btn btn-cta btn-block js-buy" type="button" style="font-size:17px;padding:17px 20px">Get instant access now — $9.99</button>
+          <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+          <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span></div>
           <div class="paypal-badge"><span style="font-style:italic;font-weight:900">PayPal</span> Secure checkout · Buyer Protection applies</div>
           <p class="micro">This is a <b>digital PDF ebook</b> — no physical book is shipped.<br/>Questions before buying? See the FAQ below.</p>
           <div class="secure"><span>🔒 Secure payment</span><span>⚡ Instant delivery</span><span>📱 Any device</span></div>
           <div class="bb-how">How it works: <b>1.</b> Pay with PayPal → <b>2.</b> Download instantly → <b>3.</b> Blend tomorrow (Day 1 of the Kickstart)</div>
           <p class="micro">Covered by <b>PayPal Buyer Protection</b>. Download trouble? Email <b>contact@thewellnessherb.com</b> and we'll sort it out. Refunds follow our <a href="#refund" data-page-link="refund"><b>Refund Policy</b></a>.</p>
         </aside>
+      </div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
       </div>
     </div>
   </section>
@@ -780,6 +843,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <article class="pain-card"><div class="pain-x" style="background:var(--lime-soft);color:var(--green)">✓</div><h3>You only need…</h3><p>Any basic blender and a normal grocery store. No protein powders, no superfood orders, no special equipment. Frozen fruit works beautifully, and every recipe takes 5 minutes.</p></article>
         <article class="pain-card"><div class="pain-x">✕</div><h3>Not for you if…</h3><p>You want medical advice, a promised weight-loss or detox cure, or a subscription / coaching programme. This is a recipe book for general wellness — no cures, no coaching, and no ongoing charges, just 105 recipes you'll actually make.</p></article>
         <article class="pain-card"><div class="pain-x" style="background:var(--gold-soft);color:#8a5d00">!</div><h3>Honest note</h3><p>This is a recipe book for general wellness and enjoyment — not medical advice and not a cure for anything. Good food, enjoyed daily, is the whole promise.</p></article>
+      </div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
       </div>
     </div>
   </section>
@@ -810,7 +878,11 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
           <p>Real reader reviews will be featured in this section. Send us your star rating and a line or two about your favourite recipe — we'd love to hear what you think.</p>
           <a class="btn btn-ghost" href="mailto:contact@thewellnessherb.com?subject=My%20star%20rating%20for%20Blend%20Your%20Way%20to%20Wellness">★ Write a review — share your star rating</a>
         </div>
-        <div style="text-align:center;margin-top:26px"><button class="btn btn-cta js-buy" type="button">Get instant access — $9.99</button></div>
+        <div class="cta-block">
+          <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+          <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+          <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -831,22 +903,29 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
         <details><summary>Will these smoothies make me lose weight / detox my body?</summary><div class="faq-a"><p>Honestly: no book can promise that, and this one doesn't. The Weight Loss chapter is built around fibre and protein to help you feel full as part of a balanced diet, and the “detox” chapter is about hydration and lighter habits — your body does its own detoxing. What we promise is 105 genuinely delicious, filling recipes that make eating well easy to stick with.</p></div></details>
         <details><summary>What if I have a problem with my download?</summary><div class="faq-a"><p>Email us at <a href="mailto:contact@thewellnessherb.com"><b>contact@thewellnessherb.com</b></a>, reply to your PayPal receipt, or reach out via The Wellness Herb on Facebook or Instagram (@thewellnessherb) and we'll sort your download out. Refunds follow our <a href="#refund" data-page-link="refund">Refund Policy</a>, and PayPal Buyer Protection also applies if anything goes wrong with delivery.</p></div></details>
       </div>
-      <div style="text-align:center;margin-top:30px"><button class="btn btn-cta js-buy" type="button">I'm ready — get the book for $9.99 →</button></div>
+      <div class="cta-block">
+        <button class="btn btn-cta js-buy" type="button">Get instant access now — $9.99</button>
+        <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+        <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
   <section class="bg-deep">
     <div class="wrap final">
-      <div class="kicker">Tomorrow morning, sorted</div>
+      <div class="kicker">Start tomorrow morning</div>
       <h2 class="serif" style="color:#fff">Your blender is already in the kitchen. Give it 105 reasons to work.</h2>
-      <p>Download tonight, follow Day 1 of the Kickstart tomorrow, and by next week the habit runs itself.</p>
+      <p>Download tonight, blend Day 1 tomorrow morning — don't wait through another week of skipped breakfasts and coffee-only mornings. By next week, the habit runs itself.</p>
       <div class="final-recap">
-        <p><b>Everything you get:</b> the full 105-recipe book · 7-Day Kickstart Plan · 4-Part Smoothie Formula · Pantry Staples List · Fill-in Planner — all in one PDF.</p>
-        <p><b>How fast it works:</b> download tonight, blend Day 1 tomorrow — 5 minutes per smoothie.</p>
+        <p><b>Everything you get:</b> the full 105-recipe book (116 pages) · 7-Day Kickstart Plan · 4-Part Smoothie Formula · Pantry Staples List · Fill-in Planner — all in one PDF, yours forever.</p>
+        <p><b>The math:</b> launch offer <s>$19.99</s> → $9.99 (SAVE 50%) — under 10¢ per recipe, every recipe ready in 5 minutes with everyday ingredients.</p>
+        <p><b>How fast it works:</b> download tonight, blend Day 1 tomorrow — your first week is already planned.</p>
       </div>
-      <button class="btn btn-cta js-buy" type="button" style="font-size:17.5px;padding:18px 34px">Get instant access — $9.99</button>
-      <p class="micro">One-time PayPal payment · Instant PDF download · <b><s>$19.99</s> Just $9.99 — save 50%, no subscription</b></p>
+      <button class="btn btn-cta js-buy" type="button" style="font-size:19px;padding:20px 40px">Get instant access now — $9.99</button>
+      <p class="micro">One-time payment · No subscription · Instant PDF download · Secure PayPal checkout · Download in minutes</p>
+      <div class="cta-proof"><span class="stars" role="img" aria-label="Five gold stars">★★★★★</span><span>Reader reviews still being collected</span><span class="badge">🛡 PayPal Buyer Protection</span><span class="badge">⚡ Instant download</span><span class="badge">📖 105 recipes</span><span class="badge">📄 116 pages</span></div>
+      <p class="micro">Launch offer · <b><s>$19.99</s> Just $9.99 — SAVE 50%</b></p>
       <p class="micro">Secure PayPal checkout with <b>PayPal Buyer Protection</b> · Download help at <b>contact@thewellnessherb.com</b> · Refunds follow our <a href="#refund" data-page-link="refund" style="color:#eaf2ea;text-decoration:underline"><b>Refund Policy</b></a></p>
     </div>
   </section>
@@ -906,7 +985,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
       <li><b>For everyone.</b> Any basic blender, any normal grocery store, dairy-free and nut-free options throughout.</li>
     </ul>
     <div class="callout"><p>Questions, feedback, or a recipe you'd love to see? Visit our <a href="#contact" data-page-link="contact">Contact page</a> or email <a href="mailto:contact@thewellnessherb.com">contact@thewellnessherb.com</a> — we read everything.</p></div>
-    <p style="margin-top:24px"><a class="btn btn-cta" href="#price">Get the book — $9.99 →</a></p>
+    <p style="margin-top:24px"><a class="btn btn-cta" href="#price">Get instant access now — $9.99</a></p>
   </article></div>
 </div>
 
@@ -1166,8 +1245,8 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
 <!-- STICKY MOBILE BAR -->
 <div class="sticky-bar" id="stickyBar" aria-hidden="true">
-  <div class="sb-price"><b><s style="color:var(--ink-3);font-size:15px;font-weight:700">$19.99</s> $9.99</b><span>Save 50% · 105 recipes · Instant PDF</span></div>
-  <button class="btn btn-cta js-buy" type="button" style="padding:13px 20px;font-size:15px">Get the book →</button>
+  <div class="sb-price"><b><s style="color:var(--ink-3);font-size:15px;font-weight:700">$19.99</s> $9.99</b><span>Launch offer · SAVE 50% · Get instant access</span></div>
+  <button class="btn btn-cta js-buy" type="button" style="padding:13px 18px;font-size:14.5px">Get instant access now — $9.99</button>
 </div>
 
 <!-- PAYPAL MODAL -->
