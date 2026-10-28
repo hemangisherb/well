@@ -13,7 +13,7 @@
 
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<meta name="color-scheme" content="light dark"/>
+<meta name="color-scheme" content="light"/>
 <title>Your Download — The Ultimate Smoothie Wellness Guide | The Wellness Herb</title>
 <!-- Private page: keep every search engine and crawler out -->
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex"/>
@@ -24,14 +24,13 @@
 <link rel="icon" href="assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png"/>
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#0a2a1d"/>
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#071a12"/>
+<meta name="theme-color" content="#ffffff"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#ffffff; --bg-soft:#f3f7f0; --bg-deep:#0a2a1d;
+  --bg:#ffffff; --bg-soft:#f3f7f0; --bg-deep:#f3f7f0;
   --ink:#121a15; --ink-2:#3d4a41; --ink-3:#6b7a6f;
   --line:#e2e8df; --card:#ffffff;
   --green:#14532d; --green-2:#1a6b3c; --lime:#8bc34a; --lime-soft:#eaf4dc;
@@ -42,15 +41,6 @@
   --radius:18px;
   --shadow:0 12px 32px rgba(10,42,29,.12); --shadow-lg:0 24px 60px rgba(10,42,29,.18);
 }
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0b120e; --bg-soft:#121c15; --bg-deep:#071a12;
-    --ink:#eef3ec; --ink-2:#c2cec3; --ink-3:#8a9a8d;
-    --line:#223128; --card:#131f17;
-    --lime-soft:#1c2f1a; --gold-soft:#2e2410; --ok-soft:#152a1a; --warn-soft:#2e2410;
-    --shadow:0 12px 32px rgba(0,0,0,.4); --shadow-lg:0 24px 60px rgba(0,0,0,.5);
-  }
-}
 *{box-sizing:border-box}
 body{margin:0;font-family:"Manrope",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -59,8 +49,8 @@ img{max-width:100%;display:block}
 button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
 /* top band */
-.band{background:var(--bg-deep);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:700}
-.band b{color:#ffd166}
+.band{background:var(--bg-deep);color:var(--ink);border-bottom:1px solid var(--line);text-align:center;padding:10px 16px;font-size:13px;font-weight:700}
+.band b{color:var(--green-2)}
 header{border-bottom:1px solid var(--line)}
 .header-in{display:flex;align-items:center;gap:10px;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16.5px}
@@ -133,7 +123,6 @@ main{padding:40px 0 56px;background:linear-gradient(180deg,var(--bg-soft) 0%,var
 .key-form input{width:100%;font-family:inherit;font-size:15px;padding:14px 15px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);min-height:52px}
 .key-form input:focus{outline:2px solid var(--green-2);outline-offset:1px;border-color:var(--green-2)}
 .key-err{display:none;background:#fdecea;color:#8f2d12;border:1px solid #f3c1b4;border-radius:12px;padding:11px 13px;font-size:13.5px;font-weight:600;line-height:1.55}
-@media (prefers-color-scheme: dark){.key-err{background:#2e1a12;color:#f0b9a6;border-color:#5a2f1e}}
 .key-err.on{display:block}
 
 /* help */
