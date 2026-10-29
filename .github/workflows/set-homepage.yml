@@ -1,0 +1,41 @@
+name: Set homepage
+
+on:
+  repository_dispatch:
+    types: [set-homepage]
+
+permissions:
+  contents: write
+
+jobs:
+  set-homepage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swap homepage file
+        run: |
+          PAGE="${{ github.event.client_payload.page }}"
+          case "$PAGE" in
+            main) SRC="home-main/index.html" ;;
+            sale1|sale2|sale3) SRC="$PAGE/index.html" ;;
+            *) echo "Invalid page: $PAGE" >&2; exit 1 ;;
+          esac
+          if [ ! -f "$SRC" ]; then echo "Missing source: $SRC" >&2; exit 1; fi
+          cp "$SRC" index.html
+          python3 -c "
+          import json, datetime
+          d = {'current': '$PAGE',
+               'updated': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+               'options': ['main', 'sale1', 'sale2', 'sale3']}
+          json.dump(d, open('homepage.json', 'w'), indent=2)
+          print('homepage set to', '$PAGE')
+          "
+
+      - name: Commit and push
+        run: |
+          git config user.name "wellness-herb-admin"
+          git config user.email "wellness-herb-admin@users.noreply.github.com"
+          git add index.html homepage.json
+          git commit -m "Set homepage to ${{ github.event.client_payload.page }}" || echo "nothing to commit"
+          git push
