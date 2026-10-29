@@ -94,6 +94,21 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .center{text-align:center}
 .mt{margin-top:18px}
 @media(min-width:640px){.hero h1{font-size:38px}.steps{grid-template-columns:repeat(3,1fr)}}
+
+/* community proof carousel */
+.cw-reviews{max-width:560px;margin:0 auto;text-align:center}
+.cw-review-card{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 22px;text-align:left;box-shadow:0 8px 24px rgba(20,92,46,.08)}
+.cw-review-card.is-active{display:block}
+.cw-review-headline{font-weight:800;font-size:18px;display:block;margin-bottom:10px;color:var(--dark-green)}
+.cw-review-body{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+.cw-reviewer strong{display:block;font-size:15px}
+.cw-reviewer span{color:var(--muted);font-size:13.5px}
+.cw-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px}
+.cw-arrow{background:#fff;border:1px solid var(--line);width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cw-arrow svg{width:20px;height:20px;fill:none;stroke:var(--green);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.cw-dots{display:flex;gap:8px}
+.cw-dot{width:10px;height:10px;border-radius:50%;border:none;background:#d5ddd6;cursor:pointer;padding:0}
+.cw-dot.is-active{background:var(--green)}
 </style>
 </head>
 <body>
@@ -112,6 +127,70 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 </div>
 </div>
 </header>
+<!-- COMMUNITY PROOF -->
+<section>
+<div class="wrap">
+<h2 class="sec-title">What our community says</h2>
+<p class="sec-sub">Real numbers from The Wellness Herb Facebook page.</p>
+<div class="cw-reviews">
+
+  <div class="cw-review-card is-active">
+    <div class="cw-review-top">
+      <span class="cw-review-headline">15,952 followers and counting</span>
+    </div>
+    <p class="cw-review-body">That is how many smoothie lovers follow The Wellness Herb on Facebook for daily recipes. This book collects 116 of our best blends in one place, organized by goal.</p>
+    <div class="cw-reviewer"><strong>The Wellness Herb</strong><span>Facebook community</span></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-review-headline">1,332 likes on a single recipe</span>
+    </div>
+    <p class="cw-review-body">Our Carrot-Lemon Glow Smoothie became one of our most-loved posts ever. The book is packed with blends in the same 5-minute, one-blender style.</p>
+    <div class="cw-reviewer"><strong>Carrot-Lemon Glow Smoothie</strong><span>most-liked recipe post</span></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-review-headline">Cooked along with, every day</span>
+    </div>
+    <p class="cw-review-body">One blender. Five minutes. Everyday ingredients. It is the formula our followers already make in their own kitchens, now with a 7-day kickstart plan and trackers.</p>
+    <div class="cw-reviewer"><strong>The Wellness Herb</strong><span>recipe kitchen</span></div>
+  </div>
+
+  <div class="cw-controls">
+    <button class="cw-arrow cw-prev" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+    </button>
+    <div class="cw-dots">
+      <button class="cw-dot is-active" type="button" aria-label="1"></button>
+      <button class="cw-dot" type="button" aria-label="2"></button>
+      <button class="cw-dot" type="button" aria-label="3"></button>
+    </div>
+    <button class="cw-arrow cw-next" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </button>
+  </div>
+
+</div>
+</div>
+</section>
+<script>
+(function(){
+  var cards=document.querySelectorAll('.cw-review-card');
+  var dots=document.querySelectorAll('.cw-dot');
+  var i=0;
+  function show(n){
+    i=(n+cards.length)%cards.length;
+    cards.forEach(function(c,k){c.classList.toggle('is-active',k===i)});
+    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i)});
+  }
+  document.querySelector('.cw-prev').addEventListener('click',function(){show(i-1)});
+  document.querySelector('.cw-next').addEventListener('click',function(){show(i+1)});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
+})();
+</script>
+
 
 <!-- PROBLEM -->
 <section>
