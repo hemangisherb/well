@@ -73,6 +73,28 @@ code{background:#eef2ee;padding:2px 6px;border-radius:6px;font-size:13px}
 <div class="center" style="text-align:center"><button class="lockbtn" id="lockBtn">Lock admin panel</button></div>
 <script>
 (function(){
+var GATE_HASH="de3f96f2fba71d18ea95d19aa6e109364c9097cfd49f8a86001fc14dcb537c98";
+function gateUnlocked(){try{return sessionStorage.getItem("wh_admin_gate")==="1"}catch(e){return false}}
+function showApp(){document.getElementById("gate").classList.add("hidden");document.getElementById("app").classList.remove("hidden")}
+async function tryGate(){
+  var v=document.getElementById("gateKey").value.trim().toUpperCase();
+  try{
+    var d=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(v));
+    var hx=Array.prototype.map.call(new Uint8Array(d),function(b){return ("0"+b.toString(16)).slice(-2)}).join("");
+    if(hx===GATE_HASH){try{sessionStorage.setItem("wh_admin_gate","1")}catch(e){}showApp();return}
+  }catch(e){}
+  document.getElementById("gateErr").textContent="Wrong key. Try again.";
+}
+function wireGate(){
+  var go=document.getElementById("gateGo"), inp=document.getElementById("gateKey");
+  if(go)go.addEventListener("click",tryGate);
+  if(inp)inp.addEventListener("keydown",function(e){if(e.key==="Enter")tryGate()});
+  var lb=document.getElementById("lockBtn");
+  if(lb)lb.addEventListener("click",function(){try{sessionStorage.removeItem("wh_admin_gate")}catch(e){}location.reload()});
+  if(gateUnlocked())showApp();
+}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",wireGate)}else{wireGate()}
+
 var PAGES=[
  {id:"main", name:"Main Sales Page", desc:"thewellnessherb.com \u2014 the original long sales page", url:"https://thewellnessherb.com/"},
  {id:"sale1", name:"Sale 1", desc:"thewellnessherb.com/sale1 \u2014 copy of the main page", url:"https://thewellnessherb.com/sale1/"},
