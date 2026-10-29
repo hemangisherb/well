@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   set-homepage:
@@ -39,3 +40,10 @@ jobs:
           git add index.html homepage.json
           git commit -m "Set homepage to ${{ github.event.client_payload.page }}" || echo "nothing to commit"
           git push
+
+      # Pushes made with GITHUB_TOKEN do not trigger other workflows (GitHub
+      # loop prevention), so the Pages deploy must be triggered explicitly.
+      - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run static.yml --ref main
