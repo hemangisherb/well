@@ -3,6 +3,13 @@ name: Set homepage
 on:
   repository_dispatch:
     types: [set-homepage]
+  workflow_dispatch:
+    inputs:
+      page:
+        description: 'Page to show as homepage'
+        required: true
+        type: choice
+        options: [main, sale1, sale2, sale3]
 
 permissions:
   contents: write
@@ -16,7 +23,7 @@ jobs:
 
       - name: Swap homepage file
         run: |
-          PAGE="${{ github.event.client_payload.page }}"
+          PAGE="${{ github.event.client_payload.page || github.event.inputs.page }}"
           case "$PAGE" in
             main) SRC="home-main/index.html" ;;
             sale1|sale2|sale3) SRC="$PAGE/index.html" ;;
