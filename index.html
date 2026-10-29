@@ -127,6 +127,11 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .cw-dot{width:7px;height:7px;border-radius:20px;border:none;background:#d8d2c4;cursor:pointer;padding:0;transition:width .25s,background .25s}
 .cw-dot.is-active{background:#1f6f43;width:26px}
 </style>
+<style>
+.otimer{display:inline-block;margin:12px 0 2px;padding:7px 16px;border-radius:999px;background:#fff8e1;border:1px solid #f0dfa8;font-size:13px;color:#7a6410}
+.otimer b{font-variant-numeric:tabular-nums;letter-spacing:.5px}
+.otimer.ended{background:#f4f4f4;border-color:#ddd;color:#999}
+</style>
 </head>
 <body>
 
@@ -490,6 +495,7 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <div class="was">$19.99</div>
 <div class="now">$9.99</div>
 <span class="save">SAVE 50% — launch price</span>
+<div><span class="otimer" id="otimer">⏱ Launch price ends in <b id="offerTimer">05:00</b></span></div>
 <p style="color:var(--muted);font-size:15px;margin-bottom:6px">That's about <b>8.6¢ per recipe</b> — less than one café smoothie.</p>
 <a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get My Smoothie Guide — $9.99</a>
 <p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; PDF for phone, tablet &amp; computer</p>
@@ -533,6 +539,24 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <div class="p"><small>$19.99</small>$9.99</div>
 <a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook</a>
 </div>
+
+
+<script>
+(function(){
+  var KEY="wh_offer_deadline", el=document.getElementById("offerTimer"), pill=document.getElementById("otimer");
+  if(!el||!pill) return;
+  var now=Date.now(), dl=0;
+  try{ dl=parseInt(localStorage.getItem(KEY)||"0",10)||0; }catch(e){}
+  if(!dl||dl<now){ dl=now+5*60*1000; try{ localStorage.setItem(KEY,String(dl)); }catch(e){} }
+  function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)), m=Math.floor(s/60); s%=60; return (m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
+  (function tick(){
+    var left=dl-Date.now();
+    if(left<=0){ pill.classList.add("ended"); pill.textContent="Launch price has ended"; return; }
+    el.textContent=fmt(left);
+    setTimeout(tick,1000);
+  })();
+})();
+</script>
 
 </body>
 </html>
