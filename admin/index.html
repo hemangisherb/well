@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Homepage Admin — The Wellness Herb</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f7faf8;color:#1a1a1a;line-height:1.6;font-size:16px;padding:24px 16px 60px;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto}
+h1{font-size:24px;margin-bottom:4px}
+.sub{color:#555;font-size:14.5px;margin-bottom:22px}
+.current{background:#fff;border:2px solid #1b7a3d;border-radius:14px;padding:16px 18px;margin-bottom:20px;font-size:16px}
+.current b{color:#145c2e}
+.card{background:#fff;border:1px solid #e3e9e4;border-radius:14px;padding:18px;margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.card .info{flex:1}
+.card .info b{font-size:17px;display:block}
+.card .info span{font-size:13.5px;color:#555}
+.card .tag{font-size:11px;font-weight:800;letter-spacing:1px;background:#e8f7ec;color:#145c2e;padding:3px 10px;border-radius:12px;display:none}
+.card.live .tag{display:inline-block}
+.btnrow{display:flex;gap:8px;flex-shrink:0}
+button{cursor:pointer;border-radius:10px;font-weight:700;font-size:14px;padding:11px 16px;border:1px solid #d5dcd6;background:#fff}
+button.primary{background:#ff6b35;border-color:#ff6b35;color:#fff}
+button.primary:disabled{background:#ccc;border-color:#ccc}
+button.linkbtn{background:#fff}
+a.prev{font-size:13px;color:#1b7a3d;text-decoration:none}
+.status{margin-top:16px;font-size:14.5px;min-height:24px}
+.status.ok{color:#145c2e;font-weight:700}
+.status.err{color:#b3261e;font-weight:700}
+.status.busy{color:#555}
+.setup{background:#fff;border:1px solid #e3e9e4;border-radius:14px;padding:18px;margin-top:26px}
+.setup h2{font-size:17px;margin-bottom:8px}
+.setup ol{margin-left:20px;font-size:14px;color:#444}
+.setup li{margin-bottom:8px}
+.setup input{width:100%;padding:11px 12px;border:1px solid #d5dcd6;border-radius:10px;font-size:14px;margin:8px 0}
+.setup .note{font-size:12.5px;color:#777;margin-top:8px}
+code{background:#eef2ee;padding:2px 6px;border-radius:6px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>⚙️ Homepage Admin</h1>
+<p class="sub">Choose which page shows at <b>thewellnessherb.com</b>. The switch goes live in about a minute.</p>
+
+<div class="current" id="currentBox">Checking current homepage…</div>
+
+<div id="cards"></div>
+
+<div class="status" id="status"></div>
+
+<div class="setup">
+<h2>One-time setup: GitHub token</h2>
+<ol>
+<li>Open <a href="https://github.com/settings/tokens/new?scopes=repo&description=wellness-herb-homepage" target="_blank" rel="noopener">Create a token</a> (tick <code>repo</code>, generate).</li>
+<li>Paste it below and tap Save. It stays only in this browser — never on the site.</li>
+</ol>
+<input type="password" id="token" placeholder="Paste GitHub token (ghp_…)" autocomplete="off">
+<div class="btnrow">
+<button class="primary" id="saveToken">Save token</button>
+<button id="clearToken">Remove</button>
+</div>
+<p class="note" id="tokenNote"></p>
+</div>
+</div>
+
+<script>
+(function(){
+var OWNER="hemangisherb", REPO="well";
+var PAGES=[
+ {id:"main", name:"Main Sales Page", desc:"thewellnessherb.com — the original long sales page", url:"https://thewellnessherb.com/"},
+ {id:"sale1", name:"Sale 1", desc:"thewellnessherb.com/sale1 — copy of the main page", url:"https://thewellnessherb.com/sale1/"},
+ {id:"sale2", name:"Sale 2", desc:"thewellnessherb.com/sale2 — short research-backed page", url:"https://thewellnessherb.com/sale2/"},
+ {id:"sale3", name:"Sale 3", desc:"thewellnessherb.com/sale3 — editorial style page", url:"https://thewellnessherb.com/sale3/"}
+];
+var statusEl=document.getElementById("status"),
+    currentBox=document.getElementById("currentBox"),
+    cardsEl=document.getElementById("cards"),
+    tokenInput=document.getElementById("token"),
+    tokenNote=document.getElementById("tokenNote");
+
+function getToken(){return localStorage.getItem("wh_admin_token")||""}
+function setStatus(msg,cls){statusEl.textContent=msg;statusEl.className="status "+(cls||"")}
+
+if(getToken()){tokenInput.value=getToken();tokenNote.textContent="Token saved in this browser.";}
+document.getElementById("saveToken").addEventListener("click",function(){
+  var t=tokenInput.value.trim();
+  if(!t){setStatus("Paste a token first.","err");return}
+  localStorage.setItem("wh_admin_token",t);
+  tokenNote.textContent="Token saved in this browser.";setStatus("Token saved.","ok");
+});
+document.getElementById("clearToken").addEventListener("click",function(){
+  localStorage.removeItem("wh_admin_token");tokenInput.value="";tokenNote.textContent="Token removed.";
+});
+
+var current="main";
+function render(){
+  currentBox.innerHTML='Now showing as homepage: <b>'+nameOf(current)+'</b>';
+  cardsEl.innerHTML="";
+  PAGES.forEach(function(p){
+    var div=document.createElement("div");
+    div.className="card"+(p.id===current?" live":"");
+    div.innerHTML='<div class="info"><b>'+p.name+' <span class="tag">LIVE</span></b><span>'+p.desc+'</span><br><a class="prev" href="'+p.url+'" target="_blank" rel="noopener">Preview ↗</a></div>';
+    var row=document.createElement("div");row.className="btnrow";
+    var b=document.createElement("button");b.className="primary";b.textContent=p.id===current?"Current":"Set as homepage";b.disabled=(p.id===current);
+    b.addEventListener("click",function(){setHomepage(p)});
+    row.appendChild(b);div.appendChild(row);cardsEl.appendChild(div);
+  });
+}
+function nameOf(id){var p=PAGES.find(function(x){return x.id===id});return p?p.name:id}
+
+function loadCurrent(){
+  fetch("../homepage.json?cb="+Date.now()).then(function(r){return r.json()}).then(function(j){
+    current=j.current||"main";render();
+  }).catch(function(){currentBox.textContent="Could not read current homepage.";render()});
+}
+
+function setHomepage(p){
+  var tok=getToken();
+  if(!tok){setStatus("Save your GitHub token first (one-time setup below).","err");return}
+  setStatus("Switching homepage to "+p.name+"…","busy");
+  fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/dispatches",{
+    method:"POST",
+    headers:{"Accept":"application/vnd.github+json","Content-Type":"application/json","Authorization":"Bearer "+tok},
+    body:JSON.stringify({event_type:"set-homepage",client_payload:{page:p.id}})
+  }).then(function(r){
+    if(r.status===204){pollFor(p.id,0)}
+    else if(r.status===401||r.status===403){setStatus("Token rejected (401/403). Create a new token with the repo scope and save it.","err")}
+    else{setStatus("GitHub said "+r.status+". Try again.","err")}
+  }).catch(function(){setStatus("Network error. Check connection and try again.","err")});
+}
+
+function pollFor(id,tries){
+  if(tries>18){setStatus("Still working — check back in a minute, then refresh.","busy");return}
+  setTimeout(function(){
+    fetch("../homepage.json?cb="+Date.now()).then(function(r){return r.json()}).then(function(j){
+      if(j.current===id){current=id;render();setStatus("Done — thewellnessherb.com now shows "+nameOf(id)+".","ok")}
+      else pollFor(id,tries+1);
+    }).catch(function(){pollFor(id,tries+1)});
+  },10000);
+}
+
+loadCurrent();
+})();
+</script>
+</body>
+</html>
