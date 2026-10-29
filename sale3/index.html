@@ -132,6 +132,7 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .heroprice{margin:16px 0 8px}
 .heroprice s{color:var(--muted);font-size:15px;margin-right:10px}
 .heroprice b{font-size:24px}
+.herotimer{margin-bottom:18px}
 
 </style>
 </head>
@@ -150,7 +151,7 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <img src="../assets/sale2-cover.webp" alt="The Ultimate Smoothie Wellness Guide book cover" fetchpriority="high">
 <span class="badge">116 RECIPES</span>
 </div>
-<div class="center"><div class="heroprice"><s>$19.99</s><b>$9.99</b></div><span class="otimer">⏱ Launch price ends in <b class="offerTimer">05:00</b></span></div>
+<div class="center herotimer"><div class="heroprice"><s>$19.99</s><b>$9.99</b></div><span class="otimer">🎃 Early Halloweekend Sale ends in <b class="offerTimer">05:00</b></span></div>
 <div class="center">
 <a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook — $9.99 ↑</a>
 <p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; <b>165 pages</b>, yours forever</p>
@@ -261,8 +262,8 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <div class="pricebox mt">
 <div class="was">$19.99</div>
 <div class="now">$9.99</div>
-<span class="save">SAVE 50% — launch price</span>
-<div><span class="otimer">⏱ Launch price ends in <b class="offerTimer">05:00</b></span></div>
+<span class="save">SAVE 50% — Early Halloweekend Sale</span>
+<div><span class="otimer">🎃 Early Halloweekend Sale ends in <b class="offerTimer">05:00</b></span></div>
 <p style="color:var(--muted);font-size:15px;margin-bottom:6px">About <b>8.6¢ per recipe</b> — less than one café smoothie.</p>
 <a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook — $9.99 ↑</a>
 <p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; PDF for phone, tablet &amp; computer</p>
@@ -354,16 +355,13 @@ document.querySelector(".cw-next").addEventListener("click",function(){show(i+1)
 
 <script>
 (function(){
-  var KEY="wh_offer_deadline";
   var pills=Array.prototype.slice.call(document.querySelectorAll(".otimer"));
   if(!pills.length) return;
-  var now=Date.now(), dl=0;
-  try{ dl=parseInt(localStorage.getItem(KEY)||"0",10)||0; }catch(e){}
-  if(!dl||dl<now){ dl=now+5*60*1000; try{ localStorage.setItem(KEY,String(dl)); }catch(e){} }
+  var dl=Date.now()+5*60*1000;
   function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)), m=Math.floor(s/60); s%=60; return (m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
   (function tick(){
     var left=dl-Date.now(), t=fmt(left);
-    if(left<=0){ pills.forEach(function(p){ p.classList.add("ended"); p.textContent="Launch price has ended"; }); return; }
+    if(left<=0){ pills.forEach(function(p){ p.classList.add("ended"); p.textContent="Early Halloweekend Sale has ended"; }); return; }
     pills.forEach(function(p){ var b=p.querySelector(".offerTimer"); if(b) b.textContent=t; });
     setTimeout(tick,1000);
   })();
