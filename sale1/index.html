@@ -711,9 +711,9 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .vr-arrow:disabled{opacity:.35;cursor:default}
 .vr-section{background:#fbf8f1;padding:48px 0}
 .vr-wrap{position:relative;padding-top:54px}
-.vr-carousel{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
-.vr-carousel::-webkit-scrollbar{display:none}
-.vr-card{flex:0 0 240px;scroll-snap-align:start;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.vr-carousel{overflow:hidden;padding:8px 4px 16px}.vr-track{display:flex;gap:14px;transition:transform .35s ease}
+
+.vr-card{flex:0 0 240px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
 .vr-player{position:relative;background:#000}
 .vr-player video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
 .vr-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;border:none;font-size:24px;cursor:pointer;transition:opacity .25s;line-height:1}
@@ -1161,7 +1161,7 @@ car.addEventListener('scroll',sync);sync();});
 <p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
 <div class="vr-wrap"><button class="vr-arrow vr-prev" aria-label="Previous">&#10094;</button>
 <button class="vr-arrow vr-next" aria-label="Next">&#10095;</button>
-<div class="vr-carousel">
+<div class="vr-carousel"><div class="vr-track">
 <div class="vr-card">
 <div class="vr-player">
 <video preload="metadata" playsinline poster="../assets/video-reviews/vr1-poster.jpg" src="../assets/video-reviews/vr1.mp4"></video>
@@ -1169,7 +1169,7 @@ car.addEventListener('scroll',sync);sync();});
 <button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
 </div>
 <div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Verified buyer</strong></div>
-</div>
+</div></div>
 <div class="vr-card">
 <div class="vr-player">
 <video preload="metadata" playsinline poster="../assets/video-reviews/vr2-poster.jpg" src="../assets/video-reviews/vr2.mp4"></video>
@@ -1962,16 +1962,24 @@ document.querySelectorAll('.vr-player').forEach(function(pl){
 </script>
 <script>
 (function(){
-var car=document.querySelector('.vr-carousel');
+var track=document.querySelector('.vr-track');
 var prev=document.querySelector('.vr-prev');
 var next=document.querySelector('.vr-next');
-if(!car||!prev||!next)return;
-function step(){var c=car.querySelector('.vr-card');return c?c.offsetWidth+14:260;}
-function sync(){prev.disabled=car.scrollLeft<=4;next.disabled=car.scrollLeft+car.clientWidth>=car.scrollWidth-4;}
-prev.addEventListener('click',function(){car.scrollLeft-=step();setTimeout(sync,300);});
-next.addEventListener('click',function(){car.scrollLeft+=step();setTimeout(sync,300);});
-car.addEventListener('scroll',sync);
-sync();
+if(!track||!prev||!next)return;
+var idx=0;
+var cards=track.querySelectorAll('.vr-card');
+function perView(){return window.innerWidth<520?1:(window.innerWidth<900?2:3);}
+function maxIdx(){return Math.max(0,cards.length-perView());}
+function update(){
+idx=Math.max(0,Math.min(idx,maxIdx()));
+var w=cards[0]?cards[0].offsetWidth+14:254;
+track.style.transform='translateX('+(-idx*w)+'px)';
+prev.disabled=idx<=0;next.disabled=idx>=maxIdx();
+}
+prev.addEventListener('click',function(){idx--;update();});
+next.addEventListener('click',function(){idx++;update();});
+window.addEventListener('resize',update);
+update();
 })();
 </script></body>
 </html>
