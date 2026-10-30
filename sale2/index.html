@@ -138,6 +138,14 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .rfeat b{display:block;font-size:14px;margin-bottom:4px}
 .rfeat span{font-size:12px;color:#6b6252}
 @media(max-width:640px){.rcats{grid-template-columns:1fr}.rfeat{grid-template-columns:1fr 1fr}}
+.vr-section{background:#fbf8f1;padding:48px 0}
+.vr-carousel{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.vr-card{flex:0 0 240px;scroll-snap-align:start;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.vr-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+.vr-meta{padding:12px}
+.vr-stars{color:#e8a020;font-size:14px;letter-spacing:2px}
+.vr-meta strong{display:block;font-size:14px;margin-top:4px}
+.vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
 </style>
 <style>
 .otimer{display:inline-block;margin:12px 0 2px;padding:7px 16px;border-radius:999px;background:#fff8e1;border:1px solid #f0dfa8;font-size:13px;color:#7a6410}
@@ -712,6 +720,40 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get My Smoothie Guide — $9.99</a>
 <p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; PDF for phone, tablet &amp; computer</p>
 <div class="paylogos">🔒 Protected by PayPal Buyer Protection</div>
+</div>
+</div>
+</section>
+
+<!-- VIDEO REVIEWS -->
+<section class="vr-section">
+<div class="wrap">
+<h2 class="sec-title">Watch real reviews</h2>
+<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
+<div class="vr-carousel">
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr1.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Verified buyer</strong></div>
+</div>
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr2.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Brooklyn Wells</strong><span>Dallas, TX · "More variety for breakfast"</span></div>
+</div>
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr3.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Carter Woods</strong><span>Boulder, CO · "Good variety to build on"</span></div>
+</div>
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr4.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Ryan Watson</strong><span>San Jose, CA · "Worth exploring"</span></div>
+</div>
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr5.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Eva Hayes</strong><span>Las Vegas, NV · "So many combinations"</span></div>
+</div>
+<div class="vr-card">
+<video controls preload="metadata" playsinline src="../assets/video-reviews/vr6.mp4"></video>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Sarah Adams</strong><span>Tampa, FL · "So many different options"</span></div>
+</div>
 </div>
 </div>
 </section>
