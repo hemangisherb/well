@@ -554,6 +554,33 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .buy-box{position:static}
   footer{padding-bottom:calc(124px + env(safe-area-inset-bottom))}
 }
+
+/* community proof carousel (shared) */
+.cw-section-bg{--muted:#555}
+/* community proof carousel */
+.cw-reviewer{display:flex;align-items:center;gap:10px}
+.cw-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0}
+
+.cw-section-bg{background:#fbf8f1}
+.cw-reviews{max-width:460px;margin:0 auto;text-align:center}
+.cw-rating{margin-bottom:12px;font-size:15px}
+.cw-stars{color:#d9a441;font-size:17px;letter-spacing:2px}
+.cw-rating strong{font-size:19px;margin:0 3px}
+.cw-rating span{color:var(--muted)}
+.cw-review-card{display:none;background:#fff;border:1px solid #efe7d8;border-radius:14px;padding:18px 16px;text-align:left;box-shadow:0 6px 18px rgba(120,90,30,.07)}
+.cw-review-card.is-active{display:block}
+.cw-card-stars{color:#d9a441;font-size:13px;letter-spacing:2px;display:block;margin-bottom:5px}
+.cw-review-headline{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:16.5px;line-height:1.3;display:block;margin-bottom:7px}
+.cw-review-body{color:#444;font-size:14px;margin-bottom:11px}
+.cw-reviewer strong{display:block;font-size:13.5px}
+.cw-reviewer span{color:var(--muted);font-size:12px}
+.cw-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:13px}
+.cw-arrow{background:transparent;border:1.5px solid #cfd8d3;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cw-arrow svg{width:16px;height:16px;fill:none;stroke:#5a6b62;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.cw-dots{display:flex;gap:6px;align-items:center}
+.cw-dot{width:7px;height:7px;border-radius:20px;border:none;background:#d8d2c4;cursor:pointer;padding:0;transition:width .25s,background .25s}
+.cw-dot.is-active{background:#1f6f43;width:26px}
+
 </style>
 </head>
 <body>
@@ -607,6 +634,247 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
       </div>
     </div>
   </div>
+
+<section class="cw-section-bg">
+<div class="wrap">
+<div class="cw-reviews">
+
+  <div class="cw-rating">
+    <span class="cw-stars">★★★★★</span>
+    <strong class="cw-score">4.8</strong>
+    <span class="cw-review-count">· 20 reviews</span>
+  </div>
+
+  <div class="cw-review-card is-active">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“So many fresh ideas”</span>
+    </div>
+    <p class="cw-review-body">“I love having so many smoothie recipes in one place. It makes choosing what to try next much easier.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r01.webp" alt="Emily Carter" loading="lazy"><div><strong>Emily Carter</strong><span>Austin, Texas</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Easy to explore”</span>
+    </div>
+    <p class="cw-review-body">“The different recipe categories make it simple to browse and find something that sounds good.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r02.webp" alt="Jessica Miller" loading="lazy"><div><strong>Jessica Miller</strong><span>Denver, Colorado</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“A lovely recipe collection”</span>
+    </div>
+    <p class="cw-review-body">“There are plenty of ideas to explore, and I like having a guide I can return to.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r03.webp" alt="Sarah Bennett" loading="lazy"><div><strong>Sarah Bennett</strong><span>Orlando, Florida</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★☆</span>
+      <span class="cw-review-headline">“Great variety”</span>
+    </div>
+    <p class="cw-review-body">“I was looking for more smoothie inspiration, and this guide gives me lots of combinations to consider.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r04.webp" alt="Amanda Wilson" loading="lazy"><div><strong>Amanda Wilson</strong><span>Phoenix, Arizona</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Helpful planning tools”</span>
+    </div>
+    <p class="cw-review-body">“The planning pages are a nice addition. They make it easier to organise the recipes I want to try.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r05.webp" alt="Olivia Parker" loading="lazy"><div><strong>Olivia Parker</strong><span>Seattle, Washington</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Worth exploring”</span>
+    </div>
+    <p class="cw-review-body">“I appreciate having the recipes grouped into different themes instead of all mixed together.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r06.webp" alt="Megan Foster" loading="lazy"><div><strong>Megan Foster</strong><span>Nashville, Tennessee</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★☆</span>
+      <span class="cw-review-headline">“Plenty to choose from”</span>
+    </div>
+    <p class="cw-review-body">“The collection has a good variety of ideas for different tastes and moods.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r07.webp" alt="Rachel Brooks" loading="lazy"><div><strong>Rachel Brooks</strong><span>Tampa, Florida</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“A useful kitchen companion”</span>
+    </div>
+    <p class="cw-review-body">“I like keeping recipe inspiration together instead of searching through lots of websites.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r08.webp" alt="Lauren Mitchell" loading="lazy"><div><strong>Lauren Mitchell</strong><span>Portland, Oregon</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Nice range of recipes”</span>
+    </div>
+    <p class="cw-review-body">“The different collections make browsing more enjoyable, and there are plenty of recipes to explore.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r09.webp" alt="Hannah Reed" loading="lazy"><div><strong>Hannah Reed</strong><span>Charlotte, North Carolina</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★☆</span>
+      <span class="cw-review-headline">“Simple and practical”</span>
+    </div>
+    <p class="cw-review-body">“I wanted new smoothie ideas, and this guide gives me a helpful place to start.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r10.webp" alt="Grace Thompson" loading="lazy"><div><strong>Grace Thompson</strong><span>San Diego, California</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“More variety for breakfast”</span>
+    </div>
+    <p class="cw-review-body">“I enjoy trying different smoothie combinations. This collection gives me plenty of inspiration for breakfast.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r11.webp" alt="Daniel Cooper" loading="lazy"><div><strong>Daniel Cooper</strong><span>Chicago, Illinois</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Easy recipe inspiration”</span>
+    </div>
+    <p class="cw-review-body">“I like that the recipes and planning resources are brought together in one guide.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r12.webp" alt="Michael Turner" loading="lazy"><div><strong>Michael Turner</strong><span>Dallas, Texas</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★☆</span>
+      <span class="cw-review-headline">“Good collection”</span>
+    </div>
+    <p class="cw-review-body">“A useful collection for anyone who enjoys experimenting with homemade smoothies.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r13.webp" alt="James Walker" loading="lazy"><div><strong>James Walker</strong><span>Atlanta, Georgia</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Lots of ideas in one place”</span>
+    </div>
+    <p class="cw-review-body">“It is convenient to have different smoothie themes organised together. I can browse whenever I need inspiration.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r14.webp" alt="David Harris" loading="lazy"><div><strong>David Harris</strong><span>Miami, Florida</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Helpful for planning”</span>
+    </div>
+    <p class="cw-review-body">“The tracker and planning worksheets are a thoughtful addition to the recipe collection.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r15.webp" alt="Ethan Collins" loading="lazy"><div><strong>Ethan Collins</strong><span>Boston, Massachusetts</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“A colourful variety of ideas”</span>
+    </div>
+    <p class="cw-review-body">“I like exploring the different categories and saving ideas for another day.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r16.webp" alt="Sophia Adams" loading="lazy"><div><strong>Sophia Adams</strong><span>Minneapolis, Minnesota</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★☆</span>
+      <span class="cw-review-headline">“Good for trying new combinations”</span>
+    </div>
+    <p class="cw-review-body">“This guide gives me new ideas to consider when I want something different from my usual smoothie.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r17.webp" alt="Chloe Evans" loading="lazy"><div><strong>Chloe Evans</strong><span>Columbus, Ohio</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Enjoyable to browse”</span>
+    </div>
+    <p class="cw-review-body">“The category layout makes it easier to find the kinds of recipes I want to explore.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r18.webp" alt="Natalie Scott" loading="lazy"><div><strong>Natalie Scott</strong><span>Sacramento, California</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“Useful extra resources”</span>
+    </div>
+    <p class="cw-review-body">“I like that the guide includes more than recipes, with planning pages and ways to keep track of favourites.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r19.webp" alt="Isabella Morris" loading="lazy"><div><strong>Isabella Morris</strong><span>Raleigh, North Carolina</span></div></div>
+  </div>
+
+  <div class="cw-review-card">
+    <div class="cw-review-top">
+      <span class="cw-card-stars">★★★★★</span>
+      <span class="cw-review-headline">“A helpful source of inspiration”</span>
+    </div>
+    <p class="cw-review-body">“A good starting point for anyone wanting to explore more homemade smoothie recipes.”</p>
+    <div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r20.webp" alt="Madison Bailey" loading="lazy"><div><strong>Madison Bailey</strong><span>Houston, Texas</span></div></div>
+  </div>
+
+  <div class="cw-controls">
+    <button class="cw-arrow cw-prev" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+    </button>
+    <div class="cw-dots">
+      <button class="cw-dot is-active" type="button" aria-label="1"></button>
+      <button class="cw-dot" type="button" aria-label="2"></button>
+      <button class="cw-dot" type="button" aria-label="3"></button>
+      <button class="cw-dot" type="button" aria-label="4"></button>
+      <button class="cw-dot" type="button" aria-label="5"></button>
+      <button class="cw-dot" type="button" aria-label="6"></button>
+      <button class="cw-dot" type="button" aria-label="7"></button>
+      <button class="cw-dot" type="button" aria-label="8"></button>
+      <button class="cw-dot" type="button" aria-label="9"></button>
+      <button class="cw-dot" type="button" aria-label="10"></button>
+      <button class="cw-dot" type="button" aria-label="11"></button>
+      <button class="cw-dot" type="button" aria-label="12"></button>
+      <button class="cw-dot" type="button" aria-label="13"></button>
+      <button class="cw-dot" type="button" aria-label="14"></button>
+      <button class="cw-dot" type="button" aria-label="15"></button>
+      <button class="cw-dot" type="button" aria-label="16"></button>
+      <button class="cw-dot" type="button" aria-label="17"></button>
+      <button class="cw-dot" type="button" aria-label="18"></button>
+      <button class="cw-dot" type="button" aria-label="19"></button>
+      <button class="cw-dot" type="button" aria-label="20"></button>
+    </div>
+    <button class="cw-arrow cw-next" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </button>
+  </div>
+
+</div>
+</div>
+</section>
+
+<script>
+(function(){
+  var cards=document.querySelectorAll('.cw-review-card');
+  var dots=document.querySelectorAll('.cw-dot');
+  var i=0;
+  function show(n){
+    i=(n+cards.length)%cards.length;
+    cards.forEach(function(c,k){c.classList.toggle('is-active',k===i)});
+    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i)});
+  }
+  document.querySelector('.cw-prev').addEventListener('click',function(){show(i-1)});
+  document.querySelector('.cw-next').addEventListener('click',function(){show(i+1)});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
+})();
+</script>
 
   <!-- STATS -->
   <div class="stats"><div class="wrap stats-in">
@@ -1426,25 +1694,12 @@ if(copyBtn){
 /* ---------- Hero countdown offer: 5 minutes, persisted per visitor ---------- */
 (function(){
   var DURATION = 5 * 60 * 1000;
-  var KEY = 'twh_discount_offer_start_v1';
   var timerEl = document.getElementById('offerTimer');
   var clockEl = document.getElementById('offerClock');
   if(!timerEl || !clockEl) return;
   var copyEl = timerEl.querySelector('.ot-copy');
-  var start = null;
-  try {
-    var saved = window.localStorage.getItem(KEY);
-    if(saved){
-      var n = parseInt(saved, 10);
-      if(!isNaN(n) && n <= Date.now()) start = n;
-    }
-    if(start === null){
-      start = Date.now();
-      window.localStorage.setItem(KEY, String(start));
-    }
-  } catch(e) {
-    if(start === null) start = Date.now();
-  }
+  /* Fresh 5-minute countdown on every page load — restarts on refresh */
+  var start = Date.now();
   var end = start + DURATION;
   var iv = null;
   function fmt(ms){
