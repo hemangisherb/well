@@ -139,8 +139,18 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .vr-play.hidden{opacity:0;pointer-events:none}
 .vr-meta strong{display:block;font-size:14px;margin-top:4px}
 .vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
+.vr-player video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.vr-play.hidden{opacity:0;pointer-events:none}
+.vr-meta strong{display:block;font-size:14px;margin-top:4px}
+.vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
+.vr-arrow:disabled{opacity:.35;cursor:default}
 .vr-section{background:#fbf8f1;padding:48px 0}
-.vr-wrap{position:relative}
+.vr-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.vr-head .sec-title{margin-bottom:4px}
+.vr-head .sec-sub{margin-bottom:0}
+.vr-nav{display:flex;gap:8px;flex-shrink:0}
+.vr-arrow{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid #e0d8c5;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);line-height:1;color:#3d362a}
+.vr-arrow:disabled{opacity:.35;cursor:default}
 .vr-carousel{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 .vr-carousel::-webkit-scrollbar{display:none}
 .vr-card{flex:0 0 240px;scroll-snap-align:start;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
@@ -153,11 +163,6 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .vr-stars{color:#e8a020;font-size:14px;letter-spacing:2px}
 .vr-meta strong{display:block;font-size:14px;margin-top:4px}
 .vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
-.vr-arrow{position:absolute;top:38%;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.95);border:1px solid #e0d8c5;font-size:20px;cursor:pointer;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,.15);line-height:1;color:#3d362a}
-.vr-prev{left:-8px}
-.vr-next{right:-8px}
-.vr-arrow:disabled{opacity:.35;cursor:default}
-@media(max-width:640px){.vr-prev{left:4px}.vr-next{right:4px}}
 </style>
 <style>
 .otimer{display:inline-block;margin:12px 0 2px;padding:7px 16px;border-radius:999px;background:#fff8e1;border:1px solid #f0dfa8;font-size:13px;color:#7a6410}
@@ -405,10 +410,8 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <!-- VIDEO REVIEWS -->
 <section class="vr-section">
 <div class="wrap">
-<h2 class="sec-title">Watch real reviews</h2>
-<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
-<div class="vr-wrap"><button class="vr-arrow vr-prev" aria-label="Previous">&#10094;</button>
-<button class="vr-arrow vr-next" aria-label="Next">&#10095;</button>
+<div class="vr-head"><div><h2 class="sec-title">Watch real reviews</h2>
+<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p></div><div class="vr-nav"><button class="vr-arrow vr-prev" aria-label="Previous">&#10094;</button><button class="vr-arrow vr-next" aria-label="Next">&#10095;</button></div></div>
 <div class="vr-carousel">
 <div class="vr-card">
 <div class="vr-player">
@@ -460,222 +463,3 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 </div>
 </div>
 </div>
-</div></section>
-
-<section class="cream">
-<div class="wrap">
-<p class="kicker">Designed for real life</p>
-<h2 class="serif">Recipes you'll <em>come back to.</em></h2>
-<p class="center" style="color:var(--muted);max-width:560px;margin:0 auto">More than a recipe list. Your everyday inspiration for better mornings.</p>
-<ul class="checks">
-<li><b>Five minutes, one blender</b><span>Every recipe timed for real mornings — no 20-ingredient projects.</span></li>
-<li><b>Exact ingredients, zero guesswork</b><span>Clear quantities and 3-step methods for everyday cooks.</span></li>
-<li><b>A blend for every goal</b><span>Weight loss, glowing skin, detox, immunity, energy — pick your goal.</span></li>
-<li><b>Everyday ingredients</b><span>Fruit, greens, nuts and seeds from regular grocery stores. Dairy-free by design.</span></li>
-<li><b>Start with a 7-day plan</b><span>A full kickstart week mapped out, plus a gentle 3-day reset.</span></li>
-</ul>
-<div class="center mt"><a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook — $9.99 ↑</a></div>
-</div>
-</section>
-
-<!-- RECIPE NAMES -->
-<section class="cream" style="padding-top:0">
-<div class="wrap">
-<p class="kicker">Inside the book</p>
-<h2 class="serif">Names you'll <em>remember.</em></h2>
-<p class="center" style="color:var(--muted);max-width:560px;margin:0 auto 20px">116 original recipes across 6 benefit chapters. A few favourites:</p>
-<div class="s3cats">
-<div><h4>🔥 Lose Weight <span>18</span></h4><p>Saffron Pistachio Persian Delight · Spicy Sweet Potato Shake · Polka Dot Berry Dance</p></div>
-<div><h4>🌿 Detoxify <span>23</span></h4><p>The Green Dragon · Minty Pineapple Love · Passion Hydrating Potion</p></div>
-<div><h4>🛡️ Immunity <span>12</span></h4><p>Pineapple Kale Explosion · Citrus Superload · Matcha Rising Sun</p></div>
-<div><h4>💪 Live Long <span>23</span></h4><p>Better than Sex Elixir · Chocolate Strawberry Fling · Purple Fig Explosion</p></div>
-<div><h4>✨ Glow <span>26</span></h4><p>The Incredibly Creamy Avocado Banana Babe · Beet Berry Blush · Mango Turmeric Sunrise Glow</p></div>
-<div><h4>⚡ Energy <span>14</span></h4><p>Rocket in My Smoothie · Guilt-Free Chocolate Raspberry Joy · Ocean Blue Almond Fusion</p></div>
-</div>
-</div>
-</section>
-
-<!-- EXTRAS -->
-<section>
-<div class="wrap">
-<p class="kicker">Inside the guide</p>
-<h2 class="serif">A little extra. <em>A lot more delicious.</em></h2>
-<p class="center" style="color:var(--muted);max-width:560px;margin:0 auto">Beyond the 116 recipes — everything that makes the guide easy to actually use.</p>
-<div class="extras">
-<div class="extra"><span class="tag">Included</span><h3>The 7-Day Kickstart Plan</h3><p>Your first week fully mapped, day by day — start strong without thinking.</p></div>
-<div class="extra"><span class="tag">Included</span><h3>The Gentle 3-Day Reset</h3><p>A short, simple reset for whenever you need a fresh start.</p></div>
-<div class="extra"><span class="tag">Included</span><h3>Recipe Finder Index</h3><p>Match any goal to the right smoothie in seconds.</p></div>
-<div class="extra"><span class="tag">Included</span><h3>Habit Trackers</h3><p>Printable pages to keep your streak going, no app needed.</p></div>
-</div>
-</div>
-</section>
-
-<!-- REVIEWS -->
-<section class="cream">
-<div class="wrap">
-<p class="kicker">Reader reviews</p>
-<h2 class="serif">Real people. <em>Real thoughts.</em></h2>
-<div class="cw-reviews">
-<div class="cw-rating"><span class="cw-stars">★★★★★</span><strong>4.7</strong><span> · 2.7k+ reviews</span></div>
-<div id="cw-cards"></div>
-<div class="cw-controls">
-<button class="cw-arrow cw-prev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
-<div class="cw-dots" id="cw-dots"></div>
-<button class="cw-arrow cw-next" type="button" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
-</div>
-</div>
-</div>
-</section>
-
-<!-- INSTANT ACCESS -->
-<section>
-<div class="wrap access">
-<p class="kicker">Instant digital access</p>
-<h2 class="serif">Buy today. <em>Blend today.</em></h2>
-<p>Your guide arrives digitally as a PDF file, ready to open on compatible phones, tablets and computers. No physical shipping — just download and start blending.</p>
-<p class="micro" style="margin-top:10px">DIGITAL EBOOK · NO PHYSICAL SHIPPING</p>
-</div>
-</section>
-
-<!-- PRICING -->
-<section class="cream" id="price">
-<div class="wrap">
-<p class="kicker">Get the guide</p>
-<h2 class="serif">One guide. <em>Every recipe.</em></h2>
-<div class="pricebox mt">
-<div class="was">$19.99</div>
-<div class="now">$9.99</div>
-<span class="save">SAVE 50% — Early Halloweekend Sale</span>
-<div><span class="otimer">🎃 Early Halloweekend Sale ends in <b class="offerTimer">05:00</b></span></div>
-<p style="color:var(--muted);font-size:15px;margin-bottom:6px">About <b>8.6¢ per recipe</b> — less than one café smoothie.</p>
-<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook — $9.99 ↑</a>
-<p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; PDF for phone, tablet &amp; computer</p>
-<p style="margin-top:12px;font-size:13px;color:var(--muted)">🔒 Protected by PayPal Buyer Protection</p>
-</div>
-</div>
-</section>
-
-
-
-<!-- FAQ -->
-<section>
-<div class="wrap" style="max-width:640px">
-<p class="kicker">Everything you need to know</p>
-<h2 class="serif">Good questions. <em>Simple answers.</em></h2>
-<div style="margin-top:22px">
-<details class="faq" open><summary>How do I receive the book?</summary><div class="a">Instantly. Right after PayPal checkout you'll get your download link — the PDF is yours to keep forever, on any device.</div></details>
-<details class="faq"><summary>What format is it? Will it work on my phone?</summary><div class="a">It's a PDF (165 pages, 6×9in) — it opens on any phone, tablet or computer with any free PDF reader. No special app needed.</div></details>
-<details class="faq"><summary>Do I need a fancy blender or rare ingredients?</summary><div class="a">No. Every recipe uses one standard blender and everyday ingredients — fruit, greens, nuts, seeds, water or nut milk. Each recipe lists exact quantities.</div></details>
-<details class="faq"><summary>Is this a physical book?</summary><div class="a">No — this is a digital ebook. The 3D cover imagery is a visual mockup of the digital cover.</div></details>
-<details class="faq"><summary>Is my payment secure?</summary><div class="a">Yes — checkout runs through PayPal with Buyer Protection. We never see or store your card details.</div></details>
-<details class="faq"><summary>What if I have a problem with my download?</summary><div class="a">Email us anytime at <a href="mailto:wellnessherbsmoothies@gmail.com" style="color:var(--green)">wellnessherbsmoothies@gmail.com</a> — a real person replies.</div></details>
-</div>
-</div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cream">
-<div class="wrap center">
-<p class="kicker">Your next favorite recipe awaits</p>
-<h2 class="serif">116 recipes. <em>Endless energy.</em></h2>
-<p style="color:var(--muted);max-width:540px;margin:0 auto 20px">Sweet blends, fresh favorites and everyday fuel. One guide, yours forever.</p>
-<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook — $9.99 ↑</a>
-<p class="micro"><b>Instant download</b> &nbsp;•&nbsp; <span style="text-decoration:line-through;color:#999">$19.99</span> <b>$9.99</b> launch price</p>
-</div>
-</section>
-
-<footer>
-<div class="wrap">
-<a href="https://thewellnessherb.com/">Home</a>•<a href="https://thewellnessherb.com/#page-privacy">Privacy</a>•<a href="https://thewellnessherb.com/#page-terms">Terms</a>•<a href="https://thewellnessherb.com/#page-refund">Refunds</a>•<a href="mailto:wellnessherbsmoothies@gmail.com">Contact</a>
-<p class="disclaimer"><b>Health disclaimer:</b> This ebook shares food recipes for general wellness inspiration only. It is not medical advice, diagnosis or treatment. Consult a qualified professional before changing your diet, especially if you are pregnant, nursing, managing a condition, or taking medication. Results vary from person to person.</p>
-<p class="disclaimer">© 2026 The Wellness Herb · thewellnessherb.com</p>
-</div>
-</footer>
-
-<div class="sticky">
-<div class="p"><small>$19.99</small>$9.99</div>
-<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook</a>
-</div>
-
-<script>
-(function(){
-var R=[
-["Emily Carter","Austin, Texas",5,"So many fresh ideas","I love having so many smoothie recipes in one place. It makes choosing what to try next much easier."],
-["Daniel Cooper","Chicago, Illinois",5,"More variety for breakfast","I enjoy trying different smoothie combinations. This collection gives me plenty of inspiration for breakfast."],
-["Sarah Bennett","Orlando, Florida",4,"A lovely recipe collection","There are plenty of ideas to explore, and I like having a guide I can return to."],
-["Amanda Wilson","Phoenix, Arizona",4,"Great variety","I was looking for more smoothie inspiration, and this guide gives me lots of combinations to consider."],
-["Olivia Parker","Seattle, Washington",5,"Helpful planning tools","The planning pages are a nice addition. They make it easier to organise the recipes I want to try."],
-["Megan Foster","Nashville, Tennessee",5,"Worth exploring","I appreciate having the recipes grouped into different themes instead of all mixed together."],
-["Rachel Brooks","Tampa, Florida",4,"Plenty to choose from","The collection has a good variety of ideas for different tastes and moods."],
-["Lauren Mitchell","Portland, Oregon",5,"A useful kitchen companion","I like keeping recipe inspiration together instead of searching through lots of websites."],
-["Hannah Reed","Charlotte, North Carolina",5,"Nice range of recipes","The different collections make browsing more enjoyable, and there are plenty of recipes to explore."],
-["Grace Thompson","San Diego, California",4,"Simple and practical","I wanted new smoothie ideas, and this guide gives me a helpful place to start."],
-["James Walker","Atlanta, Georgia",4,"Good collection","A useful collection for anyone who enjoys experimenting with homemade smoothies."],
-["Chloe Evans","Columbus, Ohio",4,"Good for trying new combinations","This guide gives me new ideas to consider when I want something different from my usual smoothie."],
-["Michael Turner","Dallas, Texas",5,"Easy recipe inspiration","I like that the recipes and planning resources are brought together in one guide."],
-["Natalie Scott","Sacramento, California",5,"Enjoyable to browse","The category layout makes it easier to find the kinds of recipes I want to explore."],
-["Ethan Collins","Boston, Massachusetts",5,"Helpful for planning","The tracker and planning worksheets are a thoughtful addition to the recipe collection."],
-["Sophia Adams","Minneapolis, Minnesota",5,"A colourful variety of ideas","I like exploring the different categories and saving ideas for another day."],
-["David Harris","Miami, Florida",4,"Lots of ideas in one place","It is convenient to have different smoothie themes organised together. I can browse whenever I need inspiration."],
-["Isabella Morris","Raleigh, North Carolina",5,"Useful extra resources","I like that the guide includes more than recipes, with planning pages and ways to keep track of favourites."],
-["Madison Bailey","Houston, Texas",5,"A helpful source of inspiration","A good starting point for anyone wanting to explore more homemade smoothie recipes."],
-["Daniel Cooper","Chicago, Illinois",5,"More variety for breakfast","I enjoy trying different smoothie combinations. This collection gives me plenty of inspiration for breakfast."]
-];
-function stars(n){var s="";for(var k=0;k<5;k++)s+=k<n?"★":"☆";return s}
-var cw=document.getElementById("cw-cards"),dt=document.getElementById("cw-dots"),i=0;
-R.forEach(function(r,k){
-var d=document.createElement("div");d.className="cw-review-card"+(k===0?" is-active":"");
-d.innerHTML='<span class="cw-card-stars">'+stars(r[2])+'</span><span class="cw-review-headline">\u201c'+r[3]+'\u201d</span><p class="cw-review-body">\u201c'+r[4]+'\u201d</p><div class="cw-reviewer"><img class="cw-avatar" src="../assets/reviewers/r'+("0"+(k+1)).slice(-2)+'.webp" alt="'+r[0]+'" loading="lazy"><div><strong>'+r[0]+'</strong><span>'+r[1]+'</span></div></div>';
-cw.appendChild(d);
-var b=document.createElement("button");b.className="cw-dot"+(k===0?" is-active":"");b.type="button";b.setAttribute("aria-label",k+1);
-b.addEventListener("click",function(){show(k)});dt.appendChild(b);
-});
-var cards=cw.querySelectorAll(".cw-review-card"),dots=dt.querySelectorAll(".cw-dot");
-function show(n){i=(n+cards.length)%cards.length;cards.forEach(function(c,k){c.classList.toggle("is-active",k===i)});dots.forEach(function(d,k){d.classList.toggle("is-active",k===i)})}
-document.querySelector(".cw-prev").addEventListener("click",function(){show(i-1)});
-document.querySelector(".cw-next").addEventListener("click",function(){show(i+1)});
-})();
-document.querySelectorAll('.vr-wrap').forEach(function(wrap){
-  var car=wrap.querySelector('.vr-carousel'), prev=wrap.querySelector('.vr-prev'), next=wrap.querySelector('.vr-next');
-  if(!car||!prev||!next) return;
-  function step(){ var c=car.querySelector('.vr-card'); return c ? c.offsetWidth+14 : 260; }
-  function sync(){ prev.disabled=car.scrollLeft<=4; next.disabled=car.scrollLeft+car.clientWidth>=car.scrollWidth-4; }
-  prev.addEventListener('click', function(){ car.scrollBy({left:-step(),behavior:'smooth'}); });
-  next.addEventListener('click', function(){ car.scrollBy({left:step(),behavior:'smooth'}); });
-  car.addEventListener('scroll', sync); sync();
-});
-
-</script>
-
-
-<script>
-(function(){
-  var pills=Array.prototype.slice.call(document.querySelectorAll(".otimer"));
-  if(!pills.length) return;
-  var dl=Date.now()+5*60*1000;
-  function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)), m=Math.floor(s/60); s%=60; return (m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
-  (function tick(){
-    var left=dl-Date.now(), t=fmt(left);
-    if(left<=0){ pills.forEach(function(p){ p.classList.add("ended"); p.textContent="Early Halloweekend Sale has ended"; }); return; }
-    pills.forEach(function(p){ var b=p.querySelector(".offerTimer"); if(b) b.textContent=t; });
-    setTimeout(tick,1000);
-  })();
-})();
-</script>
-
-<script>
-(function(){
-document.querySelectorAll('.vr-player').forEach(function(pl){
-  var v=pl.querySelector('video'), pb=pl.querySelector('.vr-play'), mb=pl.querySelector('.vr-mute');
-  function sync(){ pb.classList.toggle('hidden', !v.paused); }
-  function toggle(){ v.paused ? v.play() : v.pause(); }
-  pb.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
-  v.addEventListener('click', toggle);
-  v.addEventListener('play', sync); v.addEventListener('pause', sync);
-  mb.addEventListener('click', function(e){ e.stopPropagation(); v.muted=!v.muted; mb.innerHTML=v.muted?'&#128263;':'&#128266;'; });
-  sync();
-});
-})();
-</script>
-</body>
-</html>
