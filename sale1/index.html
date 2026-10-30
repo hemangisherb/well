@@ -1016,8 +1016,8 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     cards.forEach(function(c,k){c.classList.toggle('is-active',k===i)});
     dots.forEach(function(d,k){d.classList.toggle('is-active',k===i)});
   }
-  document.querySelector('.cw-prev').addEventListener('click',function(){show(i-1)});
-  document.querySelector('.cw-next').addEventListener('click',function(){show(i+1)});
+  var cwp=document.querySelector('.cw-prev');if(cwp)cwp.addEventListener('click',function(){show(i-1)});
+  var cwn=document.querySelector('.cw-next');if(cwn)cwn.addEventListener('click',function(){show(i+1)});
   dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
 })();
 document.querySelectorAll('.vr-wrap').forEach(function(wrap){
@@ -1960,5 +1960,18 @@ document.querySelectorAll('.vr-player').forEach(function(pl){
 });
 })();
 </script>
-</body>
+<script>
+(function(){
+var car=document.querySelector('.vr-carousel');
+var prev=document.querySelector('.vr-prev');
+var next=document.querySelector('.vr-next');
+if(!car||!prev||!next)return;
+function step(){var c=car.querySelector('.vr-card');return c?c.offsetWidth+14:260;}
+function sync(){prev.disabled=car.scrollLeft<=4;next.disabled=car.scrollLeft+car.clientWidth>=car.scrollWidth-4;}
+prev.addEventListener('click',function(){car.scrollLeft-=step();setTimeout(sync,300);});
+next.addEventListener('click',function(){car.scrollLeft+=step();setTimeout(sync,300);});
+car.addEventListener('scroll',sync);
+sync();
+})();
+</script></body>
 </html>
