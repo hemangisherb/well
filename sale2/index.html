@@ -151,12 +151,7 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
 .vr-arrow:disabled{opacity:.35;cursor:default}
 .vr-section{background:#fbf8f1;padding:48px 0}
-.vr-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-.vr-head .sec-title{margin-bottom:4px}
-.vr-head .sec-sub{margin-bottom:0}
-.vr-nav{display:flex;gap:8px;flex-shrink:0}
-.vr-arrow{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid #e0d8c5;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);line-height:1;color:#3d362a}
-.vr-arrow:disabled{opacity:.35;cursor:default}
+.vr-wrap{position:relative;padding-top:54px}
 .vr-carousel{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
 .vr-carousel::-webkit-scrollbar{display:none}
 .vr-card{flex:0 0 240px;scroll-snap-align:start;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
@@ -169,6 +164,10 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 .vr-stars{color:#e8a020;font-size:14px;letter-spacing:2px}
 .vr-meta strong{display:block;font-size:14px;margin-top:4px}
 .vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
+.vr-arrow{position:absolute;top:0;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid #e0d8c5;font-size:20px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);line-height:1;color:#3d362a;z-index:2}
+.vr-prev{right:56px;left:auto}
+.vr-next{right:4px}
+.vr-arrow:disabled{opacity:.35;cursor:default}
 </style>
 <style>
 .otimer{display:inline-block;margin:12px 0 2px;padding:7px 16px;border-radius:999px;background:#fff8e1;border:1px solid #f0dfa8;font-size:13px;color:#7a6410}
@@ -609,7 +608,14 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
   document.querySelector('.cw-next').addEventListener('click',function(){show(i+1)});
   dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
 })();
-
+document.querySelectorAll('.vr-wrap').forEach(function(wrap){
+var car=wrap.querySelector('.vr-carousel'),prev=wrap.querySelector('.vr-prev'),next=wrap.querySelector('.vr-next');
+if(!car||!prev||!next)return;
+function step(){var c=car.querySelector('.vr-card');return c?c.offsetWidth+14:260;}
+function sync(){prev.disabled=car.scrollLeft<=4;next.disabled=car.scrollLeft+car.clientWidth>=car.scrollWidth-4;}
+prev.onclick=function(){car.scrollLeft-=step();setTimeout(sync,300);};
+next.onclick=function(){car.scrollLeft+=step();setTimeout(sync,300);};
+car.addEventListener('scroll',sync);sync();});
 
 </script>
 
@@ -643,8 +649,10 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 <!-- VIDEO REVIEWS -->
 <section class="vr-section">
 <div class="wrap">
-<div class="vr-head"><div><h2 class="sec-title">Watch real reviews</h2>
-<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p></div><div class="vr-nav"><button class="vr-arrow vr-prev" aria-label="Previous">&#10094;</button><button class="vr-arrow vr-next" aria-label="Next">&#10095;</button></div></div>
+<h2 class="sec-title">Watch real reviews</h2>
+<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
+<div class="vr-wrap"><button class="vr-arrow vr-prev" aria-label="Previous">&#10094;</button>
+<button class="vr-arrow vr-next" aria-label="Next">&#10095;</button>
 <div class="vr-carousel">
 <div class="vr-card">
 <div class="vr-player">
@@ -696,3 +704,184 @@ footer a{color:var(--green);text-decoration:none;margin:0 8px}
 </div>
 </div>
 </div>
+</div></section>
+
+<section>
+<div class="wrap">
+<h2 class="sec-title">Take a look inside</h2>
+<p class="sec-sub">116 recipes across 6 targeted chapters — every one with exact ingredients, a 3-step method, a smart swap and an optional boost.</p>
+<div class="chap"><span class="t">🔥 Lose Weight</span><span class="c">18 recipes</span></div>
+<div class="chap"><span class="t">🌿 Detoxify</span><span class="c">23 recipes</span></div>
+<div class="chap"><span class="t">🛡️ Immunity &amp; Defence</span><span class="c">12 recipes</span></div>
+<div class="chap"><span class="t">💪 Live Long</span><span class="c">23 recipes</span></div>
+<div class="chap"><span class="t">✨ Anti-Aging &amp; Glow</span><span class="c">26 recipes</span></div>
+<div class="chap"><span class="t">⚡ Energy &amp; Strength</span><span class="c">14 recipes</span></div>
+<ul class="incl">
+<li><b>7-Day Wellness Kickstart Plan</b> — a full week mapped out, day by day</li>
+<li><b>Gentle 3-Day Reset</b> — a short, simple reset anytime you need one</li>
+<li><b>Recipe Finder</b> — find the right smoothie by goal in seconds</li>
+<li><b>Habit trackers</b> — printable pages to keep your streak going</li>
+<li><b>Foundations chapter</b> — blending basics, so beginners start confident</li>
+</ul>
+</div>
+</section>
+
+<!-- RECIPE NAMES SHOWCASE -->
+<section>
+<div class="wrap">
+<h2 class="sec-title">116 recipes with names you'll remember</h2>
+<p class="sec-sub">Six chapters — one for every goal. Here's a taste of what's waiting inside:</p>
+<div class="rcats">
+<div class="rcat"><h3>🔥 Lose Weight — Light &amp; Lean <span>(18)</span></h3><p>Saffron Pistachio Persian Delight · Spicy Sweet Potato Shake · Polka Dot Berry Dance</p></div>
+<div class="rcat"><h3>🌿 Detoxify — Clean &amp; Refresh <span>(23)</span></h3><p>The Green Dragon · Minty Pineapple Love · Passion Hydrating Potion</p></div>
+<div class="rcat"><h3>🛡️ Immunity &amp; Defence <span>(12)</span></h3><p>Pineapple Kale Explosion · Citrus Superload · Matcha Rising Sun</p></div>
+<div class="rcat"><h3>💪 Live Long — Vitality &amp; Strength <span>(23)</span></h3><p>Better than Sex Elixir · Chocolate Strawberry Fling · Purple Fig Explosion</p></div>
+<div class="rcat"><h3>✨ Anti-Aging &amp; Glow <span>(26)</span></h3><p>The Incredibly Creamy Avocado Banana Babe · Beet Berry Blush · Mango Turmeric Sunrise Glow</p></div>
+<div class="rcat"><h3>⚡ Energy &amp; Strength — Fuel &amp; Full <span>(14)</span></h3><p>Rocket in My Smoothie · Guilt-Free Chocolate Raspberry Joy · Ocean Blue Almond Fusion</p></div>
+</div>
+<div class="rfeat">
+<div><b>⏱️ 5 minutes</b><span>1 glass · 1 blender · every recipe</span></div>
+<div><b>📋 Exact quantities</b><span>numbered steps, no guessing</span></div>
+<div><b>🔄 A swap on every recipe</b><span>missing something? never stuck</span></div>
+<div><b>📊 Nutrition per glass</b><span>calories, protein, fiber + vitamin highlights</span></div>
+</div>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section class="soft">
+<div class="wrap">
+<h2 class="sec-title">What changes when smoothies get this easy</h2>
+<div class="ben"><h3>⚡ Steady energy, no crash</h3><p>Balanced recipes built for sustained fuel — so the 3pm slump stops running your day.</p></div>
+<div class="ben"><h3>⏱️ Five minutes, one blender</h3><p>Every recipe is timed for real mornings. No 20-ingredient projects, no special equipment.</p></div>
+<div class="ben"><h3>🎯 A recipe for every goal</h3><p>Weight loss, glowing skin, gut-friendly detox, immunity, strength — pick your goal, find your blend.</p></div>
+<div class="ben"><h3>💰 Stop the $8 habit</h3><p>Homemade smoothies cost a fraction of café prices. The book pays for itself in about two skipped café cups.</p></div>
+<div class="ben"><h3>🌱 Dairy-free by design</h3><p>Water, coconut water and nut milks — creamy without dairy, and every recipe names exact quantities.</p></div>
+</div>
+</section>
+
+<!-- AUTHOR / HONEST PROOF -->
+<section>
+<div class="wrap">
+<div class="author">
+<h3>💚 Why we made this</h3>
+<p>We're <b>The Wellness Herb</b> — the team behind daily smoothie recipes followed by thousands of readers. We kept getting the same messages: <i>"which recipe is for weight loss?"</i>, <i>"what actually works for skin?"</i>, <i>"I need it simpler."</i></p>
+<p style="margin-top:10px">So we collected our 116 best, most-loved blends, tested every one for the 5-minute rule, organized them by goal, and added the kickstart plan and trackers we wished we'd had at the start. This is the book we wanted to hand every follower.</p>
+</div>
+<div class="notfor mt">
+<h3>🙅 Who this is <u>not</u> for</h3>
+<ul>
+<li>Anyone looking for medical treatment — these are food recipes, not medicine (see disclaimer below).</li>
+<li>Anyone who wants complicated gourmet projects — every recipe is deliberately simple.</li>
+<li>Anyone unwilling to spend 5 minutes in the kitchen — no shortcuts replace the blender.</li>
+</ul>
+</div>
+<div class="center mt"><a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get My Smoothie Guide — $9.99</a>
+<p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; Yours forever</p></div>
+</div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="soft">
+<div class="wrap">
+<h2 class="sec-title">Everything you get</h2>
+<p class="sec-sub">One download. Everything below, yours to keep.</p>
+<ul class="vlist">
+<li><b>116 complete smoothie recipes</b> — exact ingredients, 3-step method, smart swap, optional boost</li>
+<li><b>6 goal-based chapters</b> — weight loss, detox, immunity, longevity, glow, energy</li>
+<li><b>7-Day Wellness Kickstart Plan</b> — your first week, fully mapped</li>
+<li><b>Gentle 3-Day Reset</b> — a short reset whenever you need one</li>
+<li><b>Recipe Finder index</b> — match any goal to a recipe in seconds</li>
+<li><b>Printable habit trackers</b> — stay consistent without an app</li>
+<li><b>Free future updates</b> — improvements to this edition, included</li>
+</ul>
+</div>
+</section>
+
+<!-- PRICING -->
+<section>
+<div class="wrap">
+<h2 class="sec-title">Get it today</h2>
+<div class="pricebox">
+<div class="was">$19.99</div>
+<div class="now">$9.99</div>
+<span class="save">SAVE 50% — Early Halloweekend Sale</span>
+<div><span class="otimer">🎃 Early Halloweekend Sale ends in <b class="offerTimer">05:00</b></span></div>
+<p style="color:var(--muted);font-size:15px;margin-bottom:6px">That's about <b>8.6¢ per recipe</b> — less than one café smoothie.</p>
+<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get My Smoothie Guide — $9.99</a>
+<p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; PDF for phone, tablet &amp; computer</p>
+<div class="paylogos">🔒 Protected by PayPal Buyer Protection</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- FAQ -->
+<section class="soft">
+<div class="wrap">
+<h2 class="sec-title">Questions, answered</h2>
+<details class="faq" open><summary>How do I receive the book?</summary><div class="a">Instantly. Right after PayPal checkout you'll get your download link — the PDF is yours to keep forever, on any device.</div></details>
+<details class="faq"><summary>What format is it? Will it work on my phone?</summary><div class="a">It's a PDF (165 pages, 6×9in) — it opens on any phone, tablet or computer with any free PDF reader. No special app needed.</div></details>
+<details class="faq"><summary>Do I need a fancy blender or rare ingredients?</summary><div class="a">No. Every recipe uses one standard blender and everyday ingredients — fruit, greens, nuts, seeds, water or nut milk. Each recipe lists exact quantities.</div></details>
+<details class="faq"><summary>Is this for me?</summary><div class="a">If you want quick, healthy smoothies organized by goal — weight loss, energy, skin glow, detox, immunity — yes. If you're looking for medical treatment or complicated gourmet recipes, this isn't it (please see the disclaimer below).</div></details>
+<details class="faq"><summary>Is my payment secure?</summary><div class="a">Yes — checkout runs through PayPal with Buyer Protection. We never see or store your card details.</div></details>
+<details class="faq"><summary>What if I have a problem with my download?</summary><div class="a">Email us anytime at <a href="mailto:wellnessherbsmoothies@gmail.com" style="color:var(--green)">wellnessherbsmoothies@gmail.com</a> — a real person replies.</div></details>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+<div class="wrap" style="text-align:center">
+<h2 class="sec-title">Your blender is waiting. 🥤</h2>
+<p class="sec-sub">116 recipes. Five minutes each. One decision.</p>
+<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get My Smoothie Guide — $9.99</a>
+<p class="micro"><b>Instant download</b> &nbsp;•&nbsp; Secure PayPal checkout &nbsp;•&nbsp; <span style="text-decoration:line-through;color:#999">$19.99</span> <b>$9.99</b> launch price</p>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<a href="https://thewellnessherb.com/">Home</a>•<a href="https://thewellnessherb.com/#page-privacy">Privacy</a>•<a href="https://thewellnessherb.com/#page-terms">Terms</a>•<a href="https://thewellnessherb.com/#page-refund">Refunds</a>•<a href="mailto:wellnessherbsmoothies@gmail.com">Contact</a>
+<p class="disclaimer"><b>Health disclaimer:</b> This ebook shares food recipes for general wellness inspiration only. It is not medical advice, diagnosis or treatment. Consult a qualified professional before changing your diet, especially if you are pregnant, nursing, managing a condition, or taking medication. Results vary from person to person.</p>
+<p class="disclaimer">© 2026 The Wellness Herb · thewellnessherb.com</p>
+</div>
+</footer>
+
+<div class="sticky">
+<div class="p"><small>$19.99</small>$9.99</div>
+<a class="btn" href="https://www.paypal.com/ncp/payment/UJWYFE5D263SW">Get the Ebook</a>
+</div>
+
+
+<script>
+(function(){
+  var pills=Array.prototype.slice.call(document.querySelectorAll(".otimer"));
+  if(!pills.length) return;
+  var dl=Date.now()+5*60*1000;
+  function fmt(ms){ var s=Math.max(0,Math.ceil(ms/1000)), m=Math.floor(s/60); s%=60; return (m<10?"0":"")+m+":"+(s<10?"0":"")+s; }
+  (function tick(){
+    var left=dl-Date.now(), t=fmt(left);
+    if(left<=0){ pills.forEach(function(p){ p.classList.add("ended"); p.textContent="Early Halloweekend Sale has ended"; }); return; }
+    pills.forEach(function(p){ var b=p.querySelector(".offerTimer"); if(b) b.textContent=t; });
+    setTimeout(tick,1000);
+  })();
+})();
+</script>
+
+<script>
+(function(){
+document.querySelectorAll('.vr-player').forEach(function(pl){
+  var v=pl.querySelector('video'), pb=pl.querySelector('.vr-play'), mb=pl.querySelector('.vr-mute');
+  function sync(){ pb.classList.toggle('hidden', !v.paused); }
+  function toggle(){ v.paused ? v.play() : v.pause(); }
+  pb.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+  v.addEventListener('click', toggle);
+  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+  mb.addEventListener('click', function(e){ e.stopPropagation(); v.muted=!v.muted; mb.innerHTML=v.muted?'&#128263;':'&#128266;'; });
+  sync();
+});
+})();
+</script>
+</body>
+</html>
