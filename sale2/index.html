@@ -899,8 +899,8 @@ var w=cards[0]?cards[0].offsetWidth+14:254;
 track.style.transform='translateX('+(-idx*w)+'px)';
 prev.disabled=idx<=0;next.disabled=idx>=maxIdx();
 }
-prev.addEventListener('click',function(){idx--;update();});
-next.addEventListener('click',function(){idx++;update();});
+prev.addEventListener('click',function(){prev.textContent='CLICKED';idx--;update();});
+next.addEventListener('click',function(){next.textContent='CLICKED';idx++;update();});
 window.addEventListener('resize',update);
 update();
 })();
