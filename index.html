@@ -697,10 +697,17 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .cw-dot{width:7px;height:7px;border-radius:20px;border:none;background:#d8d2c4;cursor:pointer;padding:0;transition:width .25s,background .25s}
 .cw-dot.is-active{background:#1f6f43;width:26px}
 
-.ch-try{font-size:13px;color:#6b5f4c;margin-top:8px!important;line-height:1.5}.ch-try b{color:#3d362a}.vr-section{background:#fbf8f1;padding:48px 0}
+.vr-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+.vr-meta strong{display:block;font-size:14px;margin-top:4px}
+.vr-meta span:last-child{font-size:12px;color:#6b6252;display:block;margin-top:2px;line-height:1.4}
+.vr-section{background:#fbf8f1;padding:48px 0}
 .vr-carousel{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .vr-card{flex:0 0 240px;scroll-snap-align:start;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.08)}
-.vr-card video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+.vr-player{position:relative;background:#000}
+.vr-player video{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+.vr-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;border:none;font-size:24px;cursor:pointer;transition:opacity .25s;line-height:1}
+.vr-play.hidden{opacity:0;pointer-events:none}
+.vr-mute{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;border:none;font-size:16px;cursor:pointer;line-height:1}
 .vr-meta{padding:12px}
 .vr-stars{color:#e8a020;font-size:14px;letter-spacing:2px}
 .vr-meta strong{display:block;font-size:14px;margin-top:4px}
@@ -1123,7 +1130,65 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   </section>
 
   <!-- PEEK INSIDE / GOAL PICKER -->
-  <section id="peek">
+  <!-- VIDEO REVIEWS -->
+<section class="vr-section">
+<div class="wrap">
+<h2 class="sec-title">Watch real reviews</h2>
+<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
+<div class="vr-carousel">
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr1-poster.jpg" src="../assets/video-reviews/vr1.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Verified buyer</strong></div>
+</div>
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr2-poster.jpg" src="../assets/video-reviews/vr2.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Brooklyn Wells</strong><span>Dallas, TX · "More variety for breakfast"</span></div>
+</div>
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr3-poster.jpg" src="../assets/video-reviews/vr3.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Carter Woods</strong><span>Boulder, CO · "Good variety to build on"</span></div>
+</div>
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr4-poster.jpg" src="../assets/video-reviews/vr4.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Ryan Watson</strong><span>San Jose, CA · "Worth exploring"</span></div>
+</div>
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr5-poster.jpg" src="../assets/video-reviews/vr5.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Eva Hayes</strong><span>Las Vegas, NV · "So many combinations"</span></div>
+</div>
+<div class="vr-card">
+<div class="vr-player">
+<video preload="metadata" playsinline poster="../assets/video-reviews/vr6-poster.jpg" src="../assets/video-reviews/vr6.mp4"></video>
+<button class="vr-play" aria-label="Play">&#9654;</button>
+<button class="vr-mute" aria-label="Sound on/off">&#128266;</button>
+</div>
+<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Sarah Adams</strong><span>Tampa, FL · "So many different options"</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="peek">
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Peek inside — a taste of what's inside</div>
@@ -1310,39 +1375,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
     </div>
   </section>
 
-  <!-- VIDEO REVIEWS -->
-<section class="vr-section">
-<div class="wrap">
-<h2 class="sec-title">Watch real reviews</h2>
-<p class="sec-sub">Real people, real kitchens, real smoothies — hear it from them.</p>
-<div class="vr-carousel">
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr1.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Verified buyer</strong></div>
-</div>
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr2.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Brooklyn Wells</strong><span>Dallas, TX · "More variety for breakfast"</span></div>
-</div>
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr3.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Carter Woods</strong><span>Boulder, CO · "Good variety to build on"</span></div>
-</div>
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr4.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Ryan Watson</strong><span>San Jose, CA · "Worth exploring"</span></div>
-</div>
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr5.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Eva Hayes</strong><span>Las Vegas, NV · "So many combinations"</span></div>
-</div>
-<div class="vr-card">
-<video controls preload="metadata" playsinline src="../assets/video-reviews/vr6.mp4"></video>
-<div class="vr-meta"><span class="vr-stars">★★★★★</span><strong>Sarah Adams</strong><span>Tampa, FL · "So many different options"</span></div>
-</div>
-</div>
-</div>
-</section>
+  
 
 <!-- FAQ -->
   <section id="faq" class="bg-soft">
@@ -1885,6 +1918,20 @@ if(copyBtn){
   }
   tick();
   if(end - Date.now() > 0) iv = setInterval(tick, 250);
+})();
+</script>
+<script>
+(function(){
+document.querySelectorAll('.vr-player').forEach(function(pl){
+  var v=pl.querySelector('video'), pb=pl.querySelector('.vr-play'), mb=pl.querySelector('.vr-mute');
+  function sync(){ pb.classList.toggle('hidden', !v.paused); }
+  function toggle(){ v.paused ? v.play() : v.pause(); }
+  pb.addEventListener('click', function(e){ e.stopPropagation(); toggle(); });
+  v.addEventListener('click', toggle);
+  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+  mb.addEventListener('click', function(e){ e.stopPropagation(); v.muted=!v.muted; mb.innerHTML=v.muted?'&#128263;':'&#128266;'; });
+  sync();
+});
 })();
 </script>
 </body>
