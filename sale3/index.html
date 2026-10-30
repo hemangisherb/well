@@ -691,15 +691,39 @@ var idx=0;
 var cards=track.querySelectorAll('.vr-card');
 function perView(){return window.innerWidth<520?1:(window.innerWidth<900?2:3);}
 function maxIdx(){return Math.max(0,cards.length-perView());}
+function cardW(){return cards[0]?cards[0].offsetWidth+14:254;}
 function update(){
 idx=Math.max(0,Math.min(idx,maxIdx()));
-var w=cards[0]?cards[0].offsetWidth+14:254;
-track.style.transform='translateX('+(-idx*w)+'px)';
+track.style.transition='transform .35s ease';
+track.style.transform='translateX('+(-idx*cardW())+'px)';
 prev.disabled=idx<=0;next.disabled=idx>=maxIdx();
 }
 prev.addEventListener('click',function(){idx--;update();});
 next.addEventListener('click',function(){idx++;update();});
 window.addEventListener('resize',update);
+// touch swipe
+var startX=0,curX=0,dragging=false;
+var viewport=track.parentElement;
+viewport.style.touchAction='pan-y';
+track.addEventListener('touchstart',function(e){
+dragging=true;startX=e.touches[0].clientX;curX=startX;
+track.style.transition='none';
+},{passive:true});
+track.addEventListener('touchmove',function(e){
+if(!dragging)return;
+curX=e.touches[0].clientX;
+var dx=curX-startX;
+track.style.transform='translateX('+(-idx*cardW()+dx)+'px)';
+},{passive:true});
+track.addEventListener('touchend',function(){
+if(!dragging)return;
+dragging=false;
+var dx=curX-startX;
+var w=cardW();
+var move=Math.round(dx/w);
+idx=idx-move;
+update();
+});
 update();
 })();
 </script></body>
