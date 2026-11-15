@@ -9,7 +9,7 @@ on:
         description: 'Page to show as homepage'
         required: true
         type: choice
-        options: [main, sale1, sale2, sale3]
+        options: [main, sale1, sale2, sale3, sale4]
 
 permissions:
   contents: write
@@ -26,7 +26,7 @@ jobs:
           PAGE="${{ github.event.client_payload.page || github.event.inputs.page }}"
           case "$PAGE" in
             main) SRC="home-main/index.html" ;;
-            sale1|sale2|sale3) SRC="$PAGE/index.html" ;;
+            sale1|sale2|sale3|sale4) SRC="$PAGE/index.html" ;;
             *) echo "Invalid page: $PAGE" >&2; exit 1 ;;
           esac
           if [ ! -f "$SRC" ]; then echo "Missing source: $SRC" >&2; exit 1; fi
@@ -35,7 +35,7 @@ jobs:
           import json, datetime
           d = {'current': '$PAGE',
                'updated': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-               'options': ['main', 'sale1', 'sale2', 'sale3']}
+               'options': ['main', 'sale1', 'sale2', 'sale3', 'sale4']}
           json.dump(d, open('homepage.json', 'w'), indent=2)
           print('homepage set to', '$PAGE')
           "
