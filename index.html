@@ -923,7 +923,7 @@ if(copyBtn){
   var KEY = 'wh_offer_end';
   var end = null;
   try { end = parseInt(localStorage.getItem(KEY), 10); } catch(e){ end = null; }
-  if(!end || isNaN(end)){
+  if(!end || isNaN(end) || Date.now() - end > 24 * 60 * 60 * 1000){
     end = Date.now() + DURATION;
     try { localStorage.setItem(KEY, String(end)); } catch(e){}
   }
